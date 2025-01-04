@@ -1,6 +1,7 @@
 extends Node
 
 signal move_update(move_x : Array[float], move_y : Array[float])
+signal kick_update(players_concerned: Array[bool])
 
 static var move_directions_x:Array[float] = [0,0,0]
 static var move_directions_y:Array[float] = [0,0,0]
@@ -14,6 +15,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	update_input()
+	update_kick_input()
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 
@@ -54,3 +56,16 @@ func update_input():
 			move_directions_y[1] = 0
 
 	move_update.emit(move_directions_x, move_directions_y)
+
+
+func update_kick_input() -> void:
+
+	var player_kick : Array[bool] = [false, false, false]
+
+	if Input.is_action_just_pressed("player1_kick"):
+		player_kick[0] = true
+
+	if Input.is_action_just_pressed("player2_kick"):
+		player_kick[1] = true
+
+	kick_update.emit(player_kick)

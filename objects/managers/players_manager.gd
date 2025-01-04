@@ -17,4 +17,5 @@ func _ready() -> void:
 		player.set_global_position(Vector2(randi_range(0, 200), randi_range(0, 200)))
 		
 		inputManagerNode.move_update.connect(player._on_player_move)
+		inputManagerNode.kick_update.connect(player._on_player_kick)
 		call_deferred("add_child", player)
