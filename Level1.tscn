@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://level_1.gd" id="1_w68es"]
 [ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="2_1xipb"]
 [ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="2_4bkhm"]
-[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://UI.tscn" id="2_h6k3s"]
+[ext_resource type="PackedScene" path="res://UI.tscn" id="2_h6k3s"]
 [ext_resource type="Script" path="res://props_manager.gd" id="4_3e5oy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://e3irey733rn5"]
+[gd_scene load_steps=4 format=3 uid="uid://crabl2252yarp"]
 
+[ext_resource type="Script" path="res://objects/FixedProps/fixed_props.gd" id="1_tftot"]
 [ext_resource type="Texture2D" uid="uid://kp58jm4lr4ax" path="res://icon.svg" id="2_0gdvu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_koax4"]
@@ -8,6 +9,7 @@ size = Vector2(123, 124)
 [node name="FixedProps" type="StaticBody2D"]
 collision_layer = 64
 collision_mask = 67
+script = ExtResource("1_tftot")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -1)

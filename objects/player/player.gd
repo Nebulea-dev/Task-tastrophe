@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player  
 var kick_res = preload("res://objects/projectiles/Kick.tscn")
 
 @onready var playerAnimation = $AnimationPlayer
@@ -15,6 +16,8 @@ var curr_look : float = 0
 var kick_distance : float = 50
 var kick_speed : float = 50
 var can_kick : bool = true
+
+var propDetected: Node2D 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -72,6 +75,8 @@ func _on_player_move(move_x : Array[float], move_y : Array[float]) -> void:
 		
 	if targetDir.x == 0 && targetDir.y == 0:
 		playerAnimation.stop()
+
+
 
 func _on_player_kick(kick_array : Array[bool]) -> void:
 	if can_kick:

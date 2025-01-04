@@ -132,30 +132,30 @@ volume_db = -0.555
 [node name="KickHitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_d7li0")
 
-[node name="Node" type="Node" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
 script = ExtResource("3_4ou25")
 
-[node name="RayCast2D2" type="RayCast2D" parent="Node"]
-position = Vector2(0, 19)
-target_position = Vector2(50, 0)
-collision_mask = 64
-metadata/direction = 0.0
-
-[node name="RayCast2D3" type="RayCast2D" parent="Node"]
+[node name="RayCast2D3" type="RayCast2D" parent="Node2D"]
 position = Vector2(0, 19)
 target_position = Vector2(-50, 0)
 collision_mask = 64
 metadata/Direction = 180.0
 
-[node name="RayCast2D4" type="RayCast2D" parent="Node"]
+[node name="RayCast2D4" type="RayCast2D" parent="Node2D"]
 position = Vector2(0, 19)
 target_position = Vector2(0, -75)
 collision_mask = 64
 metadata/Direction = 90.0
 
-[node name="RayCast2D" type="RayCast2D" parent="Node"]
+[node name="RayCast2D" type="RayCast2D" parent="Node2D"]
 position = Vector2(0, 19)
 collision_mask = 64
 metadata/Direction = 270.0
+
+[node name="RayCast2D2" type="RayCast2D" parent="Node2D"]
+position = Vector2(0, 19)
+target_position = Vector2(50, 0)
+collision_mask = 64
+metadata/direction = 0.0
 
 [connection signal="timeout" from="KickCooldown" to="." method="_on_kick_cooldown_timeout"]

@@ -69,4 +69,3 @@ func update_kick_input() -> void:
 
 	kick_update.emit(player_kick)
 	
-#Interactions
