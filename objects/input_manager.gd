@@ -3,6 +3,7 @@ extends Node
 signal move_update(move_x : Array[float], move_y : Array[float])
 signal kick_update(players_concerned: Array[bool])
 signal ping_update(players_concerned: Array[bool])
+signal activated_update(players_concerned: Array[bool])
 
 static var move_directions_x:Array[float] = [0,0,0]
 static var move_directions_y:Array[float] = [0,0,0]
@@ -18,6 +19,7 @@ func _process(_delta: float) -> void:
 	update_input()
 	update_kick_input()
 	update_ping_input()
+	update_activation_input()
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 
@@ -96,4 +98,12 @@ func update_ping_input() -> void:
 
 	ping_update.emit(player_ping)
 
-#Interactions
+func update_activation_input()-> void:
+	var player_activation : Array[bool] = [false, false, false]
+	if Input.is_action_just_pressed("player1_activated"):
+		player_activation[0] = true
+
+	if Input.is_action_just_pressed("player2_activated"):
+		player_activation[1] = true
+
+	activated_update.emit(player_activation)
