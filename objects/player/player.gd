@@ -5,7 +5,7 @@ class_name Player
 var kick_res = preload("res://objects/projectiles/Kick.tscn")
 var ping_res = preload("res://objects/projectiles/Ping.tscn")
 
-signal press_action(playerIndex: int)
+signal press_action(playerIndex: int, player: Player)
 
 @onready var playerAnimation = $AnimationPlayer
 
@@ -24,6 +24,10 @@ var can_kick : bool = true
 
 var propDetected: Node2D 
 var can_ping : bool = true
+
+var push_force = 80.0
+
+var prop_in_hand: PortableProps = null
 
 var nb_prop_connected: int = 0
 
@@ -48,9 +52,12 @@ func _process(delta: float) -> void:
 		if (collider is CharacterBody2D):
 			collider.move_and_collide(velocity.length() * move_factor * delta * (collider.global_position - global_position).normalized())
 		else:
-			collided_entity = move_and_collide(velocity.project(collided_entity.get_normal().orthogonal()) * delta);
-			if(collided_entity != null):
-				real_velocity = collided_entity.get_remainder()
+			if collider is RigidBody2D:
+				collider.apply_central_impulse(-collided_entity.get_normal() * push_force)
+			else:
+				collided_entity = move_and_collide(velocity.project(collided_entity.get_normal().orthogonal()) * delta);
+				if(collided_entity != null):
+					real_velocity = collided_entity.get_remainder()
 	else:
 		real_velocity = velocity
 	
@@ -125,5 +132,27 @@ func _on_ping_cooldown_timeout() -> void:
 
 func _on_player_action(activation_array : Array[bool]) -> void:
 	if(activation_array[playerIndex]):
-		press_action.emit(playerIndex)
+		press_action.emit(playerIndex, self)
 		$ClickSound.play()
+
+func carry_prop(prop: PortableProps) -> void:
+	launch_current_prop()
+	add_prop_to_hand(prop)
+
+func launch_current_prop() -> void:
+	if prop_in_hand:
+		print("hoh")
+		prop_in_hand.process_mode = Node.PROCESS_MODE_INHERIT
+		prop_in_hand.get_parent().remove_child(prop_in_hand)
+		get_parent().get_parent().add_child(prop_in_hand)
+		prop_in_hand.set_global_position(self.global_position)
+		prop_in_hand = null
+		pass
+
+func add_prop_to_hand(prop: PortableProps) -> void:
+	prop.process_mode = Node.PROCESS_MODE_DISABLED
+	prop.get_parent().remove_child(prop)
+	prop.set_position(Vector2(0,-30))
+	call_deferred("add_child", prop)
+	prop_in_hand = prop
+	
