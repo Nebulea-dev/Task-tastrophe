@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var playerAnimation = $AnimationPlayer
+
 
 var playerIndex : int = 0
 var move_factor : float = 0.2
@@ -24,12 +26,27 @@ func _process(delta: float) -> void:
 		print(collider)
 		collider.move_and_collide(velocity.length() * move_factor * delta * (collider.global_position - global_position).normalized())
 	
-func _on_player_move_x(move_x : Array[float]) -> void:
+func _on_player_move(move_x : Array[float], move_y : Array[float]) -> void:
 	targetDir.x = move_x[playerIndex]
 	if targetDir.length() > 1:
 		targetDir = targetDir.normalized()
-
-func _on_player_move_y(move_y : Array[float]) -> void:
+		
+		
 	targetDir.y = move_y[playerIndex]
 	if targetDir.length() > 1:
 		targetDir = targetDir.normalized()
+		
+	if targetDir.y < 0:
+		playerAnimation.play("Up")
+		
+	if targetDir.y > 0:
+		playerAnimation.play("Down")
+		
+	if targetDir.x < 0 && targetDir.y == 0:
+		playerAnimation.play("Left")
+		
+	if targetDir.x > 0 && targetDir.y == 0:
+		playerAnimation.play("Right")
+		
+	if targetDir.x == 0 && targetDir.y == 0:
+		playerAnimation.stop()

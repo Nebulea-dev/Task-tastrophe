@@ -1,17 +1,116 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhru8eoictckp"]
+[gd_scene load_steps=9 format=3 uid="uid://dhru8eoictckp"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_6fskp"]
-[ext_resource type="Texture2D" uid="uid://kp58jm4lr4ax" path="res://icon.svg" id="1_h82jh"]
+[ext_resource type="Texture2D" uid="uid://fsya38hk68pc" path="res://Aseprite/Character.png" id="2_067ku"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28sgs"]
 radius = 40.0
+
+[sub_resource type="Animation" id="Animation_nduu3"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_oxfey"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 6, 8]
+}
+
+[sub_resource type="Animation" id="Animation_m6jgp"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [9, 10, 9, 11]
+}
+
+[sub_resource type="Animation" id="Animation_gp203"]
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 3, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l15l8"]
+_data = {
+"Down": SubResource("Animation_nduu3"),
+"Left": SubResource("Animation_oxfey"),
+"Right": SubResource("Animation_m6jgp"),
+"Up": SubResource("Animation_gp203")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6fskp")
 
 [node name="Icon" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_h82jh")
+texture_filter = 1
+position = Vector2(3, 1)
+scale = Vector2(5, 5)
+texture = ExtResource("2_067ku")
+hframes = 4
+vframes = 3
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "res://Aseprite",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Aseprite/Character.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "83a8ecc56eaf43f77e2051fb40565df4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_28sgs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l15l8")
+}
