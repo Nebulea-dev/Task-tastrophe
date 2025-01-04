@@ -63,7 +63,7 @@ func _on_player_move(move_x : Array[float], move_y : Array[float]) -> void:
 	if targetDir.x > 0 && targetDir.y == 0:
 		playerAnimation.play("Right")
 
-	var mission1: Mission = Mission.new(true, "Move to the next box")
+	var mission1: Mission = Mission.new(false, "Move to the next box")
 	var mission2: Mission = Mission.new(true, "Defuse da [img width=\"50\" height=\"50\"]res://Aseprite/Bomb.png[/img]")
 	var mission3: Mission = Mission.new(true, "Touch grass")
 	

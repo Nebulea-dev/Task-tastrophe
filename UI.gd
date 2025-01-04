@@ -25,4 +25,8 @@ func _on_update_player_mission(player: int, missions: Array[Mission]):
 			
 	player_missions.clear()
 	for mission in missions:
-		player_missions.append_text("• " + mission.text + "\n")
+		if mission.done:
+			player_missions.append_text("[color=#636363]• " + mission.text + "[/color]\n")
+			
+		else:
+			player_missions.append_text("• " + mission.text + "\n")
