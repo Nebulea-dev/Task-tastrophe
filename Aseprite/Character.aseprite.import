@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Character.aseprite-ac278bc955bef3ef52d274dec5
 
 [params]
 
-split_layers=false
+split_layers=true
 exclude_layers_pattern=""
 only_visible_layers=false
 sheet_type="Packed"

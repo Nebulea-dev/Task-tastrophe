@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dhru8eoictckp"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_6fskp"]
-[ext_resource type="Texture2D" uid="uid://fsya38hk68pc" path="res://Aseprite/Character.png" id="2_067ku"]
+[ext_resource type="Texture2D" uid="uid://cyhmxypwa02xs" path="res://Aseprite/Character_Green.png" id="2_fct0r"]
 [ext_resource type="AudioStream" uid="uid://8ii1g5ykqihy" path="res://assets/ui_menu_popup_03.wav" id="3_lsqsn"]
 [ext_resource type="AudioStream" uid="uid://sc5r0038foav" path="res://assets/Punch 2_3.wav" id="4_d7li0"]
 
@@ -89,7 +89,7 @@ script = ExtResource("1_6fskp")
 texture_filter = 1
 position = Vector2(3, 1)
 scale = Vector2(5, 5)
-texture = ExtResource("2_067ku")
+texture = ExtResource("2_fct0r")
 hframes = 4
 vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
