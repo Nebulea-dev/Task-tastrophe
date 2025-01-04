@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=3 uid="uid://dio0sk0e83p3n"]
+
+[ext_resource type="Script" path="res://objects/props/Door/door.gd" id="1_cd0yf"]
+[ext_resource type="Texture2D" uid="uid://b4b2wbh4mqdst" path="res://objects/props/walkable_tiles/Targets.png" id="1_ytvl0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua0dj"]
+size = Vector2(65, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bmljl"]
+size = Vector2(100, 100)
+
+[sub_resource type="Animation" id="Animation_cbhgw"]
+resource_name = "Open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ymnrv"]
+resource_name = "Close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_q706b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qoai7"]
+_data = {
+"Close": SubResource("Animation_ymnrv"),
+"Open": SubResource("Animation_cbhgw"),
+"RESET": SubResource("Animation_q706b")
+}
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_cd0yf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="Collision" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ua0dj")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_bmljl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_ytvl0")
+hframes = 2
+vframes = 2
+frame = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Aseprite/objectives/Targets.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b27d05d8f0b5ddb1710bfeaa6ec5e398"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qoai7")
+}
+playback_auto_capture = false
+movie_quit_on_finish = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
