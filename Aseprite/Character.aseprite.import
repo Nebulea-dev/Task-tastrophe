@@ -1,7 +1,7 @@
 [remap]
 
-importer="aseprite_wizard.plugin.noop"
-type="PackedDataContainer"
+importer="aseprite_wizard.plugin"
+type="SpriteFrames"
 uid="uid://dxlarrarh23tn"
 path="res://.godot/imported/Character.aseprite-ac278bc955bef3ef52d274dec5a216cc.res"
 
@@ -12,3 +12,8 @@ dest_files=["res://.godot/imported/Character.aseprite-ac278bc955bef3ef52d274dec5
 
 [params]
 
+split_layers=false
+exclude_layers_pattern=""
+only_visible_layers=false
+sheet_type="Packed"
+animation/round_fps=true
