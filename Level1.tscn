@@ -56,7 +56,7 @@ tile_map_data = PackedByteArray("AAADAAEAAAAEAAAAAAAEAAEAAAAFAAAAAAAFAAEAAAAFAAA
 tile_set = SubResource("TileSet_pfkd4")
 
 [node name="PlayersManager" parent="." node_paths=PackedStringArray("inputManagerNode") instance=ExtResource("1_2wjc7")]
-position = Vector2(967, 513)
+position = Vector2(522, 309)
 inputManagerNode = NodePath("../InputManager")
 
 [node name="InputManager" parent="." instance=ExtResource("2_4bkhm")]
