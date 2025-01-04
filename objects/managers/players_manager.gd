@@ -18,4 +18,5 @@ func _ready() -> void:
 		
 		inputManagerNode.move_update.connect(player._on_player_move)
 		inputManagerNode.kick_update.connect(player._on_player_kick)
+		inputManagerNode.ping_update.connect(player._on_player_ping)
 		call_deferred("add_child", player)

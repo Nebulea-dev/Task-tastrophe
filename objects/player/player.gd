@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 var kick_res = preload("res://objects/projectiles/Kick.tscn")
+var ping_res = preload("res://objects/projectiles/Ping.tscn")
 
 @onready var playerAnimation = $AnimationPlayer
 
@@ -15,6 +16,8 @@ var curr_look : float = 0
 var kick_distance : float = 50
 var kick_speed : float = 50
 var can_kick : bool = true
+
+var can_ping : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -85,9 +88,20 @@ func _on_player_kick(kick_array : Array[bool]) -> void:
 			kick.creator = self
 			get_parent().add_child(kick)
 			can_kick = false
-		
 
 
 func _on_kick_cooldown_timeout() -> void:
 	$KickReloadSound.play()
 	can_kick = true
+
+
+func _on_player_ping(kick_array : Array[bool]) -> void:
+	if can_ping:
+		if(kick_array[playerIndex]):
+			$PingCooldown.start()
+			$PingSound.play()
+			call_deferred("add_child", ping_res.instantiate())
+			can_ping = false
+		
+func _on_ping_cooldown_timeout() -> void:
+	can_ping = true

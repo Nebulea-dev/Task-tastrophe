@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var player :Node2D = get_parent()
 	var orientation : int  = player.global_rotation_degrees
 	var directionPlayer : int = (orientation /90 )*90
