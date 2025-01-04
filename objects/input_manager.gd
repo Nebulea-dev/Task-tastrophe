@@ -58,6 +58,19 @@ func update_input():
 			move_directions_y[1] = 0
 
 	move_update.emit(move_directions_x, move_directions_y)
+	
+	# Mission tab expansion
+	if Input.is_action_just_pressed("player1_mission"):
+		Signals.expand_player_mission_tab.emit(0)
+		
+	if Input.is_action_just_released("player1_mission"):
+		Signals.close_player_mission_tab.emit(0)
+		
+	if Input.is_action_just_pressed("player2_mission"):
+		Signals.expand_player_mission_tab.emit(1)
+		
+	if Input.is_action_just_released("player2_mission"):
+		Signals.close_player_mission_tab.emit(1)
 
 
 func update_kick_input() -> void:

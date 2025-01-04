@@ -12,6 +12,8 @@ extends Control
 
 func _ready() -> void:
 	Signals.update_player_mission.connect(_on_update_player_mission)
+	Signals.close_player_mission_tab.connect(close_player_mission_tab)
+	Signals.expand_player_mission_tab.connect(expand_player_mission_tab)
 	
 	expand_player_mission_tab(0)
 	expand_player_mission_tab(1)
