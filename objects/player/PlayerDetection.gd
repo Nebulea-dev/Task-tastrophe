@@ -30,7 +30,7 @@ func _process(_delta: float) -> void:
 				collider.call("_onDetection",player)
 				
 				
-				player.inputManager.activated_update.connect(collider._onActivation,4 )
+				player.inputManager.activated_update.connect(collider._onActivation, 4)
 			else :
 				var oldCollider= player.propDetected;
 				if(oldCollider!=null ):

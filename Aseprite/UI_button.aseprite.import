@@ -3,11 +3,12 @@
 importer="aseprite_wizard.plugin"
 type="SpriteFrames"
 uid="uid://cu5tnc7rchotm"
-valid=false
+path="res://.godot/imported/UI_button.aseprite-bc3511027ca4922d6aefcf8e06a4dc73.res"
 
 [deps]
 
 source_file="res://Aseprite/UI_button.aseprite"
+dest_files=["res://.godot/imported/UI_button.aseprite-bc3511027ca4922d6aefcf8e06a4dc73.res"]
 
 [params]
 

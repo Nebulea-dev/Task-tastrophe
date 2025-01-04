@@ -23,8 +23,11 @@ var can_kick : bool = true
 var propDetected: Node2D 
 var can_ping : bool = true
 
+var nb_prop_connected: int = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$KeyAnimationPlayer.play("default")
 	Signals.set_timer_value.emit(120)
 	Signals.start_timer.emit()
 	pass # Replace with function body.

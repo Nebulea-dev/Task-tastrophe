@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhru8eoictckp"]
+[gd_scene load_steps=15 format=3 uid="uid://dhru8eoictckp"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_6fskp"]
 [ext_resource type="Texture2D" uid="uid://cyhmxypwa02xs" path="res://Aseprite/Character_Green.png" id="2_fct0r"]
 [ext_resource type="AudioStream" uid="uid://8ii1g5ykqihy" path="res://assets/ui_menu_popup_03.wav" id="3_lsqsn"]
 [ext_resource type="AudioStream" uid="uid://sc5r0038foav" path="res://assets/Punch 2_3.wav" id="4_d7li0"]
 [ext_resource type="AudioStream" uid="uid://sdnyydpnn6rk" path="res://assets/Drop 4_2.wav" id="5_bop6s"]
+[ext_resource type="Texture2D" uid="uid://b18fth5s2k2gm" path="res://objects/player/KeyPopUp.png" id="6_h03fx"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qikmd"]
 radius = 24.0
@@ -82,6 +83,27 @@ _data = {
 "Up": SubResource("Animation_gp203")
 }
 
+[sub_resource type="Animation" id="Animation_j00vu"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f8wyl"]
+_data = {
+"default": SubResource("Animation_j00vu")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 67
@@ -133,7 +155,6 @@ volume_db = -0.555
 stream = ExtResource("4_d7li0")
 
 [node name="Node2D" type="Node2D" parent="."]
-script = ExtResource("3_4ou25")
 
 [node name="RayCast2D3" type="RayCast2D" parent="Node2D"]
 position = Vector2(0, 19)
@@ -163,6 +184,36 @@ one_shot = true
 
 [node name="PingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_bop6s")
+
+[node name="KeySprite" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(52, -62)
+scale = Vector2(3, 3)
+texture = ExtResource("6_h03fx")
+hframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "KeyAnimationPlayer",
+"slice": "",
+"source": "res://Aseprite/KeyPopUp.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "9fb93a0e55ab555b185ad08c4003762f"
+
+[node name="KeyAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../KeySprite")
+libraries = {
+"": SubResource("AnimationLibrary_f8wyl")
+}
 
 [connection signal="timeout" from="KickCooldown" to="." method="_on_kick_cooldown_timeout"]
 [connection signal="timeout" from="PingCooldown" to="." method="_on_ping_cooldown_timeout"]
