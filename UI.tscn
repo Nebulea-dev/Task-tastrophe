@@ -33,136 +33,251 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("1_jy0h1")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -450.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+texture = ExtResource("1_jy0h1")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/ReferenceRect/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
+scale = Vector2(0.1, 0.1)
 
-[node name="Player_1_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="Player_1_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/ReferenceRect/NinePatchRect/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 10.0
+offset_right = 426.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/outline_size = 15
 theme_override_constants/line_separation = -10
 theme_override_fonts/normal_font = ExtResource("2_g00yh")
 theme_override_font_sizes/normal_font_size = 45
-bbcode_enabled = true
-text = " • Move to the next box
- • Defuse the [img width=\"50\" height=\"50\"]res://Aseprite/Bomb.png[/img] 
- • Touch grass"
+text = "• Move to the next box
+• Defuse the bomb
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass"
 scroll_active = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2"]
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 size_flags_vertical = 0
-texture = ExtResource("2_33wqn")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2/TextureRect"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -450.0
+offset_bottom = -180.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+texture = ExtResource("2_33wqn")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2/ReferenceRect/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
+scale = Vector2(0.1, 0.1)
 
-[node name="Player_2_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2/TextureRect/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="Player_2_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2/ReferenceRect/NinePatchRect/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = 10.0
+offset_right = 427.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/outline_size = 15
 theme_override_constants/line_separation = -10
 theme_override_fonts/normal_font = ExtResource("2_g00yh")
 theme_override_font_sizes/normal_font_size = 45
-text = " • Move to the next box
- • Defuse the bomb
- • Touch grass"
+text = "• Move to the next box
+• Defuse the bomb
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass"
 scroll_active = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 8
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("3_uporx")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer/TextureRect"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_right = -450.0
+offset_bottom = -181.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+texture = ExtResource("3_uporx")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer/ReferenceRect/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
+scale = Vector2(0.1, 0.1)
 
-[node name="Player_3_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer/TextureRect/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="Player_3_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer/ReferenceRect/NinePatchRect/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 10.0
+offset_right = 426.0
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/outline_size = 15
 theme_override_constants/line_separation = -10
 theme_override_fonts/normal_font = ExtResource("2_g00yh")
 theme_override_font_sizes/normal_font_size = 45
-text = " • Move to the next box
- • Defuse the bomb
- • Touch grass"
+text = "• Move to the next box
+• Defuse the bomb
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass"
 scroll_active = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2"]
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2"]
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
-size_flags_horizontal = 8
 size_flags_vertical = 0
-texture = ExtResource("4_pigoo")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2/TextureRect"]
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -3.0
+offset_right = -450.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
+texture = ExtResource("4_pigoo")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4
+
+[node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2/ReferenceRect/NinePatchRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
+scale = Vector2(0.1, 0.1)
 
-[node name="Player_4_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2/TextureRect/MarginContainer"]
-layout_mode = 2
-size_flags_vertical = 3
+[node name="Player_4_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2/ReferenceRect/NinePatchRect/ReferenceRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 17.0
+offset_right = 426.0
+offset_bottom = 163.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/outline_size = 15
 theme_override_constants/line_separation = -10
 theme_override_fonts/normal_font = ExtResource("2_g00yh")
 theme_override_font_sizes/normal_font_size = 45
-text = " • Move to the next box
- • Defuse the bomb
- • Touch grass"
+text = "• Move to the next box
+• Defuse the bomb
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass
+• Touch grass"
 scroll_active = false
