@@ -15,11 +15,6 @@ func _ready() -> void:
 	Signals.close_player_mission_tab.connect(close_player_mission_tab)
 	Signals.expand_player_mission_tab.connect(expand_player_mission_tab)
 	
-	expand_player_mission_tab(0)
-	expand_player_mission_tab(1)
-	expand_player_mission_tab(2)
-	expand_player_mission_tab(3)
-	
 	close_player_mission_tab(0)
 	close_player_mission_tab(1)
 	close_player_mission_tab(2)
@@ -77,9 +72,18 @@ func close_player_mission_tab(player: int):
 		_:
 			print("_on_update_player_mission recieved an unexpected player number : ", player)
 			
-	player_missions_tab.size = Vector2(50, 20)
-	player_missions_tab.position = Vector2(0, 0)
-	player_missions_text.size = Vector2(448, 167)
+	
+	var tween_tab_size = create_tween()
+	var tween_tab_position = create_tween()
+	var tween_text_size = create_tween()
+	
+	tween_tab_size.tween_property(player_missions_tab, "size:y", 20, 0.4)
+	tween_tab_position.tween_property(player_missions_tab, "position:y", 0, 0.4)
+	tween_text_size.tween_property(player_missions_text, "size:y", 167, 0.4)
+	
+	#player_missions_tab.size = Vector2(50, 20)
+	#player_missions_tab.position = Vector2(0, 0)
+	#player_missions_text.size = Vector2(448, 167)
 			
 func expand_player_mission_tab(player: int):
 	var player_missions_text: Node
@@ -108,10 +112,20 @@ func expand_player_mission_tab(player: int):
 		_:
 			print("_on_update_player_mission recieved an unexpected player number : ", player)
 			
-	player_missions_tab.size = Vector2(50, 70)
+	var tween_tab_size = create_tween()
+	var tween_tab_position = create_tween()
+	var tween_text_size = create_tween()
+	
+	tween_tab_size.tween_property(player_missions_tab, "size:y", 70, 0.4)
+	#player_missions_tab.size = Vector2(50, 70)
+	
 	if player == 2 or player == 3:
-		player_missions_tab.position = Vector2(0, -500)
+		tween_tab_position.tween_property(player_missions_tab, "position:y", -500, 0.4)
+		#player_missions_tab.position = Vector2(0, -500)
 	else:
-		player_missions_tab.position = Vector2(0, 0)
-	player_missions_text.size = Vector2(448, 680)
+		tween_tab_position.tween_property(player_missions_tab, "position:y", 0, 0.4)
+		#player_missions_tab.position = Vector2(0, 0)
+		
+	tween_text_size.tween_property(player_missions_text, "size:y", 680, 0.4)
+	#player_missions_text.size = Vector2(448, 680)
 	
