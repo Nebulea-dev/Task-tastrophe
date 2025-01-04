@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhru8eoictckp"]
+[gd_scene load_steps=12 format=3 uid="uid://dhru8eoictckp"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_6fskp"]
 [ext_resource type="Texture2D" uid="uid://cyhmxypwa02xs" path="res://Aseprite/Character_Green.png" id="2_fct0r"]
+[ext_resource type="Script" path="res://objects/player/PlayerDetection.gd" id="3_4ou25"]
 [ext_resource type="AudioStream" uid="uid://8ii1g5ykqihy" path="res://assets/ui_menu_popup_03.wav" id="3_lsqsn"]
 [ext_resource type="AudioStream" uid="uid://sc5r0038foav" path="res://assets/Punch 2_3.wav" id="4_d7li0"]
 
@@ -82,7 +83,8 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
-floor_max_angle = 0.44855
+collision_layer = 2
+collision_mask = 67
 script = ExtResource("1_6fskp")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -129,5 +131,31 @@ volume_db = -0.555
 
 [node name="KickHitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_d7li0")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_4ou25")
+
+[node name="RayCast2D2" type="RayCast2D" parent="Node"]
+position = Vector2(0, 19)
+target_position = Vector2(50, 0)
+collision_mask = 64
+metadata/direction = 0.0
+
+[node name="RayCast2D3" type="RayCast2D" parent="Node"]
+position = Vector2(0, 19)
+target_position = Vector2(-50, 0)
+collision_mask = 64
+metadata/Direction = 180.0
+
+[node name="RayCast2D4" type="RayCast2D" parent="Node"]
+position = Vector2(0, 19)
+target_position = Vector2(0, -75)
+collision_mask = 64
+metadata/Direction = 90.0
+
+[node name="RayCast2D" type="RayCast2D" parent="Node"]
+position = Vector2(0, 19)
+collision_mask = 64
+metadata/Direction = 270.0
 
 [connection signal="timeout" from="KickCooldown" to="." method="_on_kick_cooldown_timeout"]

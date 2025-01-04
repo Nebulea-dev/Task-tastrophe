@@ -59,7 +59,6 @@ func update_input():
 
 
 func update_kick_input() -> void:
-
 	var player_kick : Array[bool] = [false, false, false]
 
 	if Input.is_action_just_pressed("player1_kick"):
@@ -69,3 +68,5 @@ func update_kick_input() -> void:
 		player_kick[1] = true
 
 	kick_update.emit(player_kick)
+	
+#Interactions
