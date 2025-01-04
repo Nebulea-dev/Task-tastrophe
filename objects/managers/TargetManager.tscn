@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://0mw6m5dok2hq"]
+[gd_scene load_steps=14 format=3 uid="uid://0mw6m5dok2hq"]
 
 [ext_resource type="Script" path="res://objects/managers/target_manager.gd" id="1_cu1ob"]
 [ext_resource type="Texture2D" uid="uid://b3dt4srdghutp" path="res://objects/managers/TargetManager.png" id="2_im34e"]
@@ -38,9 +38,57 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_p6441"]
+resource_name = "ReallyOpen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_27ptq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_xqeqy"]
+resource_name = "Closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kpcpu"]
 _data = {
+"Closed": SubResource("Animation_xqeqy"),
 "Open": SubResource("Animation_a0vs4"),
+"RESET": SubResource("Animation_27ptq"),
+"ReallyOpen": SubResource("Animation_p6441"),
 "default": SubResource("Animation_hgml6")
 }
 
@@ -59,6 +107,7 @@ texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("2_im34e")
 hframes = 2
+frame = 1
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -74,7 +123,7 @@ metadata/_aseprite_wizard_config_ = {
 "slice": "",
 "source": "res://Aseprite/objectives/TargetManager.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "323effe944aee1d3d68cf22f3ea22196"
+metadata/_aseprite_wizard_source_file_hash_ = "91c680b10ceb615f4dff247add59ae16"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../TargetManager")

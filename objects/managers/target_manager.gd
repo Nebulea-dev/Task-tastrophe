@@ -9,6 +9,7 @@ var currInChallenge : int = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$AnimationPlayer.play("Closed")
 	var targetList: Node2D = get_parent().get_node("./MoveTargetList")
 
 	for child in targetList.get_children():
@@ -39,6 +40,7 @@ func _on_target_finished() -> void:
 		$TargetCloseSound.play()
 	else:
 		$FinishTargetsSound.play()
+		$AnimationPlayer.play("Closed")
 		isChallengeStarted = false
 
 func _on_action_pressed(playerIndex: int) -> void:
@@ -51,3 +53,6 @@ func _on_action_pressed(playerIndex: int) -> void:
 			var currTarget: MoveTarget = currTargetList[i]
 			activatedTargetList.append(currTarget)
 			currTarget.open_target(playerIndex)
+		
+		$AnimationPlayer.play("ReallyOpen")	
+		
