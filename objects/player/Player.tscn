@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_6fskp"]
 [ext_resource type="Texture2D" uid="uid://fsya38hk68pc" path="res://Aseprite/Character.png" id="2_067ku"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_28sgs"]
-radius = 40.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qikmd"]
+radius = 24.0
+height = 48.0
 
 [sub_resource type="Animation" id="Animation_nduu3"]
 length = 0.4
@@ -108,7 +109,8 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "83a8ecc56eaf43f77e2051fb40565df4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_28sgs")
+position = Vector2(-1, 19)
+shape = SubResource("CapsuleShape2D_qikmd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

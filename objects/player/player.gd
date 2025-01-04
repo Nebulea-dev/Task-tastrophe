@@ -24,7 +24,8 @@ func _process(delta: float) -> void:
 	if(collided_entity != null):
 		var collider : Node2D = collided_entity.get_collider()
 		print(collider)
-		collider.move_and_collide(velocity.length() * move_factor * delta * (collider.global_position - global_position).normalized())
+		if (collider is CharacterBody2D):
+			collider.move_and_collide(velocity.length() * move_factor * delta * (collider.global_position - global_position).normalized())
 	
 func _on_player_move(move_x : Array[float], move_y : Array[float]) -> void:
 	targetDir.x = move_x[playerIndex]
