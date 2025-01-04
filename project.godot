@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="Task-tastrophe"
+run/main_scene="res://Tilemap_test.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=3
 
 [editor_plugins]
 
@@ -20,4 +27,5 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
