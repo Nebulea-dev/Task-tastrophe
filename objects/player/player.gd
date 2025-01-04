@@ -10,6 +10,7 @@ var ping_res = preload("res://objects/projectiles/Ping.tscn")
 @export var move_factor : float = 0.2
 @export var speed : int = 500
 
+var inputManager :Node 
 var playerIndex : int = 0
 var targetDir : Vector2 = Vector2(0, 0)
 var real_velocity : Vector2

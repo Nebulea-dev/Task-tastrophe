@@ -133,6 +133,7 @@ volume_db = -0.555
 stream = ExtResource("4_d7li0")
 
 [node name="Node2D" type="Node2D" parent="."]
+script = ExtResource("3_4ou25")
 
 [node name="RayCast2D3" type="RayCast2D" parent="Node2D"]
 position = Vector2(0, 19)

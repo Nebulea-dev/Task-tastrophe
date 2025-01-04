@@ -18,7 +18,7 @@ func _ready() -> void:
 		player.get_node("./PrincipalSprite").texture = list_sprites[id]
 		player.playerIndex = id
 		player.set_global_position(Vector2(randi_range(0, 100), randi_range(0, 100)))
-		
+		player.inputManager= inputManagerNode
 		inputManagerNode.move_update.connect(player._on_player_move)
 		inputManagerNode.kick_update.connect(player._on_player_kick)
 		inputManagerNode.ping_update.connect(player._on_player_ping)
