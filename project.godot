@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Task-tastrophe"
-run/main_scene="res://Level1.tscn"
+run/main_scene="res://MainMenu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
