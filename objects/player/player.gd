@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-class_name Player  
+class_name Player
+
 var kick_res = preload("res://objects/projectiles/Kick.tscn")
 var ping_res = preload("res://objects/projectiles/Ping.tscn")
 

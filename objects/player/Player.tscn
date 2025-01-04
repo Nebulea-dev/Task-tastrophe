@@ -141,7 +141,7 @@ one_shot = true
 [node name="PingSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_bop6s")
 
-[node name="Node" type="Node" parent="."]
+[node name="Node" type="Node2D" parent="."]
 script = ExtResource("3_4ou25")
 
 [node name="RayCast2D3" type="RayCast2D" parent="Node2D"]
@@ -152,7 +152,6 @@ metadata/Direction = 180.0
 
 [node name="RayCast2D4" type="RayCast2D" parent="Node2D"]
 position = Vector2(0, 19)
-target_position = Vector2(0, -75)
 collision_mask = 64
 metadata/Direction = 90.0
 

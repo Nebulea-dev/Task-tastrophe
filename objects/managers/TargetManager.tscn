@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=3 uid="uid://0mw6m5dok2hq"]
+
+[ext_resource type="Script" path="res://objects/managers/target_manager.gd" id="1_cu1ob"]
+[ext_resource type="Texture2D" uid="uid://b3dt4srdghutp" path="res://objects/managers/TargetManager.png" id="2_im34e"]
+[ext_resource type="AudioStream" uid="uid://d318x3uh7iwry" path="res://assets/snd_dumbvictory.wav" id="3_66l6o"]
+[ext_resource type="AudioStream" uid="uid://cpsqvh0bmm865" path="res://assets/snd_hurt1.wav" id="4_51amw"]
+[ext_resource type="AudioStream" uid="uid://hmwexfwn40po" path="res://assets/Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack.wav" id="5_edkeg"]
+
+[sub_resource type="Animation" id="Animation_a0vs4"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_hgml6"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kpcpu"]
+_data = {
+"Open": SubResource("Animation_a0vs4"),
+"default": SubResource("Animation_hgml6")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ev5t7"]
+size = Vector2(64, 64)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2heun"]
+radius = 72.1734
+
+[node name="TargetManager" type="Node2D"]
+script = ExtResource("1_cu1ob")
+
+[node name="TargetManager" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_im34e")
+hframes = 2
+frame = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Aseprite/objectives/TargetManager.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "323effe944aee1d3d68cf22f3ea22196"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../TargetManager")
+libraries = {
+"": SubResource("AnimationLibrary_kpcpu")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ev5t7")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2heun")
+
+[node name="StartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_66l6o")
+
+[node name="TargetCloseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_51amw")
+
+[node name="FinishTargetsSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_edkeg")
+volume_db = -6.039
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
