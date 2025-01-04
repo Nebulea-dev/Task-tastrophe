@@ -31,7 +31,6 @@ size_flags_vertical = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(500, 200)
@@ -90,9 +89,28 @@ text = "• Move to the next box
 • Touch grass"
 scroll_active = false
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainerTimer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="GameTimerText" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainerTimer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/outline_size = 50
+theme_override_constants/line_separation = -10
+theme_override_fonts/normal_font = ExtResource("2_g00yh")
+theme_override_font_sizes/normal_font_size = 150
+bbcode_enabled = true
+text = "[img width=\\\"120\\\" height=\\\"120\\\"]res://Aseprite/Hourglass.png[/img]1:53:98"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="GameTimer" type="Timer" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainerTimer"]
+one_shot = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 
 [node name="ReferenceRect" type="ReferenceRect" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(500, 200)

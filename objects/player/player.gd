@@ -24,6 +24,8 @@ var can_ping : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Signals.set_timer_value.emit(120)
+	Signals.start_timer.emit()
 	pass # Replace with function body.
 
 

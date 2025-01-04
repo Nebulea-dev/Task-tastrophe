@@ -10,15 +10,50 @@ extends Control
 @onready var Player_3_tab = $CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer/ReferenceRect/NinePatchRect
 @onready var Player_4_tab = $CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2/ReferenceRect/NinePatchRect
 
+@onready var GameTimerText = $CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainerTimer/GameTimerText
+@onready var GameTimer = $CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainerTimer/GameTimer
+
+var timer_initial_value: float = 0
+
 func _ready() -> void:
 	Signals.update_player_mission.connect(_on_update_player_mission)
 	Signals.close_player_mission_tab.connect(close_player_mission_tab)
 	Signals.expand_player_mission_tab.connect(expand_player_mission_tab)
 	
+	Signals.set_timer_value.connect(set_timer_value)
+	Signals.start_timer.connect(start_timer)
+	Signals.stop_timer.connect(stop_timer)
+	
 	close_player_mission_tab(0)
 	close_player_mission_tab(1)
 	close_player_mission_tab(2)
 	close_player_mission_tab(3)
+	
+func _process(delta: float) -> void:
+	var remaining_time: float = GameTimer.time_left
+	var min: int = int(remaining_time / 60)
+	var sec: int = int(remaining_time) % 60
+	var ms: int = int(remaining_time * 100) % 100
+	GameTimerText.clear()
+	GameTimerText.append_text("[img width=\"120\" height=\"120\"]res://Aseprite/Hourglass.png[/img]%d:%02d:%02d" % [min, sec, ms])
+
+func set_timer_value(time: float):
+	timer_initial_value = time
+	
+	var min: int = int(time / 60)
+	var sec: int = int(time) % 60
+	var ms: int = int(time * 100) % 100 
+	
+	GameTimer.stop()
+	GameTimerText.clear()
+	GameTimerText.append_text("[img width=\"120\" height=\"120\"]res://Aseprite/Hourglass.png[/img]%d:%02d:%02d" % [min, sec, ms])
+	
+	
+func start_timer():
+	GameTimer.start(timer_initial_value)
+	
+func stop_timer():
+	GameTimer.stop()
 
 
 func _on_update_player_mission(player: int, missions: Array[Mission]):
