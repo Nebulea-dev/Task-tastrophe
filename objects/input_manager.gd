@@ -16,7 +16,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_vertical_input()
 	update_horizontal_input()
-
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()
 
 func update_vertical_input() -> void:
 	if Input.is_action_pressed("player1_up"):
