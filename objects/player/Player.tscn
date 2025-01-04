@@ -80,6 +80,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+floor_max_angle = 0.44855
 script = ExtResource("1_6fskp")
 
 [node name="Icon" type="Sprite2D" parent="."]
