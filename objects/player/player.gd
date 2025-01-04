@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 class_name Player  
 var kick_res = preload("res://objects/projectiles/Kick.tscn")
+var ping_res = preload("res://objects/projectiles/Ping.tscn")
 
 @onready var playerAnimation = $AnimationPlayer
 
@@ -18,6 +19,7 @@ var kick_speed : float = 50
 var can_kick : bool = true
 
 var propDetected: Node2D 
+var can_ping : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -68,11 +70,12 @@ func _on_player_move(move_x : Array[float], move_y : Array[float]) -> void:
 
 	var mission1: Mission = Mission.new(false, "Move to the next box")
 	var mission2: Mission = Mission.new(true, "Defuse da [img width=\"50\" height=\"50\"]res://Aseprite/Bomb.png[/img]")
-	var mission3: Mission = Mission.new(true, "Touch grass")
+	var mission3: Mission = Mission.new(false, "Touch grass")
+	var mission4: Mission = Mission.new(true, "Get a haircut")
 	
-	var missions: Array[Mission] = [mission1, mission2, mission3]
+	var missions: Array[Mission] = [mission1, mission2, mission3, mission4]
 	Signals.update_player_mission.emit(playerIndex, missions)
-		
+	
 	if targetDir.x == 0 && targetDir.y == 0:
 		playerAnimation.stop()
 
@@ -90,9 +93,20 @@ func _on_player_kick(kick_array : Array[bool]) -> void:
 			kick.creator = self
 			get_parent().add_child(kick)
 			can_kick = false
-		
 
 
 func _on_kick_cooldown_timeout() -> void:
 	$KickReloadSound.play()
 	can_kick = true
+
+
+func _on_player_ping(kick_array : Array[bool]) -> void:
+	if can_ping:
+		if(kick_array[playerIndex]):
+			$PingCooldown.start()
+			$PingSound.play()
+			call_deferred("add_child", ping_res.instantiate())
+			can_ping = false
+		
+func _on_ping_cooldown_timeout() -> void:
+	can_ping = true

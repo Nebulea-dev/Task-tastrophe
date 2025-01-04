@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dhru8eoictckp"]
+[gd_scene load_steps=13 format=3 uid="uid://dhru8eoictckp"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_6fskp"]
 [ext_resource type="Texture2D" uid="uid://cyhmxypwa02xs" path="res://Aseprite/Character_Green.png" id="2_fct0r"]
 [ext_resource type="Script" path="res://objects/player/PlayerDetection.gd" id="3_4ou25"]
 [ext_resource type="AudioStream" uid="uid://8ii1g5ykqihy" path="res://assets/ui_menu_popup_03.wav" id="3_lsqsn"]
 [ext_resource type="AudioStream" uid="uid://sc5r0038foav" path="res://assets/Punch 2_3.wav" id="4_d7li0"]
+[ext_resource type="AudioStream" uid="uid://sdnyydpnn6rk" path="res://assets/Drop 4_2.wav" id="5_bop6s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qikmd"]
 radius = 24.0
@@ -16,7 +17,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
+tracks/0/path = NodePath("PrincipalSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -32,7 +33,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
+tracks/0/path = NodePath("PrincipalSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -48,7 +49,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
+tracks/0/path = NodePath("PrincipalSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -64,7 +65,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:frame")
+tracks/0/path = NodePath("PrincipalSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -87,7 +88,7 @@ collision_layer = 2
 collision_mask = 67
 script = ExtResource("1_6fskp")
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="PrincipalSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(3, 1)
 scale = Vector2(5, 5)
@@ -133,6 +134,14 @@ volume_db = -0.555
 stream = ExtResource("4_d7li0")
 
 [node name="Node2D" type="Node2D" parent="."]
+[node name="PingCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="PingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_bop6s")
+
+[node name="Node" type="Node" parent="."]
 script = ExtResource("3_4ou25")
 
 [node name="RayCast2D3" type="RayCast2D" parent="Node2D"]
@@ -159,3 +168,4 @@ collision_mask = 64
 metadata/direction = 0.0
 
 [connection signal="timeout" from="KickCooldown" to="." method="_on_kick_cooldown_timeout"]
+[connection signal="timeout" from="PingCooldown" to="." method="_on_ping_cooldown_timeout"]
