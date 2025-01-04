@@ -14,6 +14,7 @@ func _ready() -> void:
 	for child in targetList.get_children():
 		if child is MoveTarget:
 			currTargetList.append(child)
+			child.target_finished.connect(_on_target_finished)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.qs
@@ -32,7 +33,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				var currTarget: MoveTarget = currTargetList[i]
 				activatedTargetList.append(currTarget)
 				currTarget.open_target(body.playerIndex)
-				currTarget.target_finished.connect(_on_target_finished)
 
 func _on_target_finished() -> void:
 	currInChallenge -= 1
