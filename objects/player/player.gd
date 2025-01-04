@@ -68,7 +68,7 @@ func _on_player_move(move_x : Array[float], move_y : Array[float]) -> void:
 
 	var mission1: Mission = Mission.new(false, "Move to the next box")
 	var mission2: Mission = Mission.new(true, "Defuse da [img width=\"50\" height=\"50\"]res://Aseprite/Bomb.png[/img]")
-	var mission3: Mission = Mission.new(true, "Touch grass")
+	var mission3: Mission = Mission.new(false, "Touch grass")
 	
 	var missions: Array[Mission] = [mission1, mission2, mission3]
 	Signals.update_player_mission.emit(playerIndex, missions)

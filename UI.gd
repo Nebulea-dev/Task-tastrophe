@@ -24,9 +24,11 @@ func _on_update_player_mission(player: int, missions: Array[Mission]):
 			print("_on_update_player_mission recieved an unexpected player number : ", player)
 			
 	player_missions.clear()
+	
+	for mission in missions:
+		if !mission.done:
+			player_missions.append_text("• " + mission.text + "\n")
+	
 	for mission in missions:
 		if mission.done:
 			player_missions.append_text("[color=#636363]• " + mission.text + "[/color]\n")
-			
-		else:
-			player_missions.append_text("• " + mission.text + "\n")
