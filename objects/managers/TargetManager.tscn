@@ -6,6 +6,21 @@
 [ext_resource type="AudioStream" uid="uid://cpsqvh0bmm865" path="res://assets/snd_hurt1.wav" id="4_51amw"]
 [ext_resource type="AudioStream" uid="uid://hmwexfwn40po" path="res://assets/Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack.wav" id="5_edkeg"]
 
+[sub_resource type="Animation" id="Animation_xqeqy"]
+resource_name = "Closed"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_a0vs4"]
 length = 0.3
 loop_mode = 1
@@ -20,37 +35,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [0, 1, 2]
-}
-
-[sub_resource type="Animation" id="Animation_hgml6"]
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_p6441"]
-resource_name = "ReallyOpen"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_27ptq"]
@@ -68,8 +52,8 @@ tracks/0/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_xqeqy"]
-resource_name = "Closed"
+[sub_resource type="Animation" id="Animation_p6441"]
+resource_name = "ReallyOpen"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -77,10 +61,26 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0666667),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_hgml6"]
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kpcpu"]
