@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hmwexfwn40po"
+path="res://.godot/imported/Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack.wav-da3122e2b39b30f3ccbb7cefd582f825.sample"
+
+[deps]
+
+source_file="res://assets/Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack.wav"
+dest_files=["res://.godot/imported/Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack.wav-da3122e2b39b30f3ccbb7cefd582f825.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

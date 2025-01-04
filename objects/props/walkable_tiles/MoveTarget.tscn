@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://beh4nrm2234e4"]
+
+[ext_resource type="Script" path="res://objects/props/walkable_tiles/move_target.gd" id="1_c10gl"]
+[ext_resource type="Texture2D" uid="uid://b4b2wbh4mqdst" path="res://objects/props/walkable_tiles/Targets.png" id="1_fy7ps"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el67d"]
+size = Vector2(64, 64)
+
+[sub_resource type="Animation" id="Animation_cbhgw"]
+resource_name = "Open"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qoai7"]
+_data = {
+"Open": SubResource("Animation_cbhgw")
+}
+
+[node name="MoveTarget" type="Node2D"]
+script = ExtResource("1_c10gl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_el67d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("1_fy7ps")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Aseprite/objectives/Targets.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "b27d05d8f0b5ddb1710bfeaa6ec5e398"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qoai7")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
