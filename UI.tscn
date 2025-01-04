@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://eibebwdc0s5c"]
+[gd_scene load_steps=7 format=3 uid="uid://eibebwdc0s5c"]
 
+[ext_resource type="Script" path="res://UI.gd" id="1_5lmgj"]
 [ext_resource type="Texture2D" uid="uid://c12ypot4ohlbb" path="res://Aseprite/UI_button_Pink.png" id="1_jy0h1"]
 [ext_resource type="Texture2D" uid="uid://ble1rbbr28o7g" path="res://Aseprite/UI_button_Blue.png" id="2_33wqn"]
+[ext_resource type="FontFile" uid="uid://cvquxx4shln8m" path="res://Fonts/ThaleahFat.ttf" id="2_g00yh"]
 [ext_resource type="Texture2D" uid="uid://cpv24rvqgig1k" path="res://Aseprite/UI_button_Green.png" id="3_uporx"]
 [ext_resource type="Texture2D" uid="uid://b2bxndgq81rk2" path="res://Aseprite/UI_button_Yellow.png" id="4_pigoo"]
 
@@ -12,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5lmgj")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -37,6 +40,29 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("1_jy0h1")
 
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="Player_1_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 15
+theme_override_constants/line_separation = -10
+theme_override_fonts/normal_font = ExtResource("2_g00yh")
+theme_override_font_sizes/normal_font_size = 45
+bbcode_enabled = true
+text = " • Move to the next box
+ • Defuse the [img width=\"50\" height=\"50\"]res://Aseprite/Bomb.png[/img] 
+ • Touch grass"
+scroll_active = false
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -48,6 +74,28 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture = ExtResource("2_33wqn")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="Player_2_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer/HBoxContainer2/TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 15
+theme_override_constants/line_separation = -10
+theme_override_fonts/normal_font = ExtResource("2_g00yh")
+theme_override_font_sizes/normal_font_size = 45
+text = " • Move to the next box
+ • Defuse the bomb
+ • Touch grass"
+scroll_active = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
@@ -63,6 +111,28 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 texture = ExtResource("3_uporx")
 
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="Player_3_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 15
+theme_override_constants/line_separation = -10
+theme_override_fonts/normal_font = ExtResource("2_g00yh")
+theme_override_font_sizes/normal_font_size = 45
+text = " • Move to the next box
+ • Defuse the bomb
+ • Touch grass"
+scroll_active = false
+
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -74,3 +144,25 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 texture = ExtResource("4_pigoo")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+
+[node name="Player_4_text" type="RichTextLabel" parent="CanvasLayer/VBoxContainer/HBoxContainer2/HBoxContainer2/TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 15
+theme_override_constants/line_separation = -10
+theme_override_fonts/normal_font = ExtResource("2_g00yh")
+theme_override_font_sizes/normal_font_size = 45
+text = " • Move to the next box
+ • Defuse the bomb
+ • Touch grass"
+scroll_active = false

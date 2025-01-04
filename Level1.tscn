@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://d4mn600oe432k"]
+[gd_scene load_steps=8 format=4 uid="uid://d4mn600oe432k"]
 
 [ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="1_2wjc7"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_w68es"]
 [ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="2_1xipb"]
 [ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="2_4bkhm"]
+[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://UI.tscn" id="2_h6k3s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]
 texture = ExtResource("2_1xipb")
@@ -48,6 +49,8 @@ sources/0 = SubResource("TileSetAtlasSource_38thi")
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_w68es")
+
+[node name="UI" parent="." instance=ExtResource("2_h6k3s")]
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
