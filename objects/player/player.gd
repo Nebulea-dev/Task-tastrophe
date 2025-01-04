@@ -136,15 +136,15 @@ func _on_player_action(activation_array : Array[bool]) -> void:
 		$ClickSound.play()
 
 func carry_prop(prop: PortableProps) -> void:
-	launch_current_prop()
+	drop_current_prop()
 	add_prop_to_hand(prop)
 
-func launch_current_prop() -> void:
+func drop_current_prop() -> void:
 	if prop_in_hand:
 		print("hoh")
 		prop_in_hand.process_mode = Node.PROCESS_MODE_INHERIT
 		prop_in_hand.get_parent().remove_child(prop_in_hand)
-		get_parent().get_parent().add_child(prop_in_hand)
+		get_parent().get_parent().call_deferred("add_child", prop_in_hand)
 		prop_in_hand.set_global_position(self.global_position)
 		prop_in_hand = null
 		pass

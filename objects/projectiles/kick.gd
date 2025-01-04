@@ -31,5 +31,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:
 		body.apply_central_impulse(curr_velocity.normalized() * push_force)
 	else:
-		if body is CharacterBody2D:
+		if body is Player:
+			body.drop_current_prop()
 			body.move_and_collide(curr_velocity.normalized() * kick_deplacement)
