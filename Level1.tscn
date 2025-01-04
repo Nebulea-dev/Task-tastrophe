@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4mn600oe432k"]
+
+[ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="1_2wjc7"]
+[ext_resource type="Script" path="res://level_1.gd" id="1_w68es"]
+[ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="2_4bkhm"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_w68es")
+
+[node name="PlayersManager" parent="." node_paths=PackedStringArray("inputManagerNode") instance=ExtResource("1_2wjc7")]
+position = Vector2(579, 310)
+inputManagerNode = NodePath("../InputManager")
+
+[node name="InputManager" parent="." instance=ExtResource("2_4bkhm")]
