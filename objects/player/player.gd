@@ -5,6 +5,8 @@ class_name Player
 var kick_res = preload("res://objects/projectiles/Kick.tscn")
 var ping_res = preload("res://objects/projectiles/Ping.tscn")
 
+signal press_action(playerIndex: int)
+
 @onready var playerAnimation = $AnimationPlayer
 
 @export var move_factor : float = 0.2
@@ -51,6 +53,8 @@ func _process(delta: float) -> void:
 				real_velocity = collided_entity.get_remainder()
 	else:
 		real_velocity = velocity
+	
+	$KeySprite.visible =  press_action.get_connections().size() > 0
 
 
 func _on_player_move(move_x : Array[float], move_y : Array[float]) -> void:
@@ -117,3 +121,9 @@ func _on_player_ping(kick_array : Array[bool]) -> void:
 		
 func _on_ping_cooldown_timeout() -> void:
 	can_ping = true
+
+
+func _on_player_action(activation_array : Array[bool]) -> void:
+	if(activation_array[playerIndex]):
+		press_action.emit(playerIndex)
+		$ClickSound.play()

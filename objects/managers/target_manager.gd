@@ -23,16 +23,15 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if not isChallengeStarted:
-		if body is Player:
-			isChallengeStarted = true
-			$StartSound.play()
-			currTargetList.shuffle()
-			currInChallenge = nbInChallenge
-			for i in range(nbInChallenge):
-				var currTarget: MoveTarget = currTargetList[i]
-				activatedTargetList.append(currTarget)
-				currTarget.open_target(body.playerIndex)
+	if body is Player:
+		body.press_action.connect(_on_action_pressed)
+
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body is Player:
+		body.press_action.disconnect(_on_action_pressed)
+
 
 func _on_target_finished() -> void:
 	currInChallenge -= 1
@@ -41,3 +40,14 @@ func _on_target_finished() -> void:
 	else:
 		$FinishTargetsSound.play()
 		isChallengeStarted = false
+
+func _on_action_pressed(playerIndex: int) -> void:
+	if not isChallengeStarted:
+		isChallengeStarted = true
+		$StartSound.play()
+		currTargetList.shuffle()
+		currInChallenge = nbInChallenge
+		for i in range(nbInChallenge):
+			var currTarget: MoveTarget = currTargetList[i]
+			activatedTargetList.append(currTarget)
+			currTarget.open_target(playerIndex)

@@ -28,7 +28,7 @@ func open_target(id: int) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if usable:
 		if body is Player:
-			if body.playerIndex == playerActiveId:
+			if body.playerIndex == playerActiveId: 
 				usable = false
 				target_finished.emit()
 				moveTargetAnimation.stop()

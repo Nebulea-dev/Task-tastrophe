@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhru8eoictckp"]
+[gd_scene load_steps=16 format=3 uid="uid://dhru8eoictckp"]
 
 [ext_resource type="Script" path="res://objects/player/player.gd" id="1_6fskp"]
 [ext_resource type="Texture2D" uid="uid://cyhmxypwa02xs" path="res://Aseprite/Character_Green.png" id="2_fct0r"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://sc5r0038foav" path="res://assets/Punch 2_3.wav" id="4_d7li0"]
 [ext_resource type="AudioStream" uid="uid://sdnyydpnn6rk" path="res://assets/Drop 4_2.wav" id="5_bop6s"]
 [ext_resource type="Texture2D" uid="uid://b18fth5s2k2gm" path="res://objects/player/KeyPopUp.png" id="6_h03fx"]
+[ext_resource type="AudioStream" uid="uid://d0m8yxup56trp" path="res://assets/Click (12).wav" id="7_0hj6r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qikmd"]
 radius = 24.0
@@ -214,6 +215,10 @@ root_node = NodePath("../KeySprite")
 libraries = {
 "": SubResource("AnimationLibrary_f8wyl")
 }
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_0hj6r")
+volume_db = -8.723
 
 [connection signal="timeout" from="KickCooldown" to="." method="_on_kick_cooldown_timeout"]
 [connection signal="timeout" from="PingCooldown" to="." method="_on_ping_cooldown_timeout"]
