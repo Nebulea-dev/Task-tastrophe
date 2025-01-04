@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=4 uid="uid://diqjg62rfhbm6"]
+[gd_scene load_steps=5 format=4 uid="uid://diqjg62rfhbm6"]
 
 [ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="1_qoua1"]
+[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://UI.tscn" id="1_rscgx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8c3u"]
 texture = ExtResource("1_qoua1")
@@ -44,6 +45,8 @@ physics_layer_0/collision_mask = 66
 sources/0 = SubResource("TileSetAtlasSource_c8c3u")
 
 [node name="Node2D" type="Node2D"]
+
+[node name="UI" parent="." instance=ExtResource("1_rscgx")]
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 use_parent_material = true
