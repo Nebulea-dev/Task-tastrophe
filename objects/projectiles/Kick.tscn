@@ -16,7 +16,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_d71k1")
 
 [node name="KickDurationTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.2
 one_shot = true
 autostart = true
 
@@ -29,3 +29,4 @@ scale = Vector2(1.25, 1.25)
 shape = SubResource("CircleShape2D_ygmkw")
 
 [connection signal="timeout" from="KickDurationTimer" to="." method="_on_kick_duration_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
