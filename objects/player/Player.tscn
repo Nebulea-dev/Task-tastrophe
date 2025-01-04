@@ -116,3 +116,5 @@ shape = SubResource("CapsuleShape2D_qikmd")
 libraries = {
 "": SubResource("AnimationLibrary_l15l8")
 }
+
+[node name="Timer" type="Timer" parent="."]
