@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://level_1.gd" id="1_w68es"]
 [ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="2_1xipb"]
 [ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="2_4bkhm"]
-[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://UI.tscn" id="2_h6k3s"]
+[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_h6k3s"]
 [ext_resource type="Script" path="res://props_manager.gd" id="4_3e5oy"]
 [ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="7_2lkxp"]
 [ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="7_3km8w"]

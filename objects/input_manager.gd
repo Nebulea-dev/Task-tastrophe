@@ -21,7 +21,9 @@ func _process(_delta: float) -> void:
 	update_ping_input()
 	update_activation_input()
 	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
+		var main_menu_scene = load("res://MainMenu/main_menu.tscn")
+		get_parent().get_parent().add_child(main_menu_scene.instantiate())
+		get_parent().queue_free()
 
 func update_input():
 	# Horizontal input

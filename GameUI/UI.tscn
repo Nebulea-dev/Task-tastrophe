@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://eibebwdc0s5c"]
 
-[ext_resource type="Script" path="res://UI.gd" id="1_5lmgj"]
+[ext_resource type="Script" path="res://GameUI/UI.gd" id="1_5lmgj"]
 [ext_resource type="Texture2D" uid="uid://c12ypot4ohlbb" path="res://Aseprite/UI_button_Pink.png" id="1_jy0h1"]
 [ext_resource type="Texture2D" uid="uid://ble1rbbr28o7g" path="res://Aseprite/UI_button_Blue.png" id="2_33wqn"]
 [ext_resource type="FontFile" uid="uid://cvquxx4shln8m" path="res://Fonts/ThaleahFat.ttf" id="2_g00yh"]

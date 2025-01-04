@@ -1,0 +1,125 @@
+[gd_scene load_steps=3 format=3 uid="uid://doyhak1mfw73"]
+
+[ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_gpndq"]
+[ext_resource type="FontFile" uid="uid://cvquxx4shln8m" path="res://Fonts/ThaleahFat.ttf" id="2_hx24q"]
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gpndq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.333333, 0.266667, 0.4, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 250
+text = "Task-tastrophe"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 100
+text = "> "
+
+[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(694, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 100
+text = "Start"
+
+[node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
+layout_mode = 2
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 100
+text = "> "
+
+[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(694, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 100
+text = "tutorial"
+
+[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4"]
+layout_mode = 2
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 100
+text = "> "
+
+[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 100
+text = "Level selection"
+
+[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
+layout_mode = 2
+
+[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 100
+text = "> "
+
+[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
+custom_minimum_size = Vector2(694, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_hx24q")
+theme_override_font_sizes/font_size = 100
+text = "exit"
