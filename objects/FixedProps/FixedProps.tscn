@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://crabl2252yarp"]
+[gd_scene load_steps=4 format=3 uid="uid://e3irey733rn5"]
 
 [ext_resource type="Script" path="res://objects/FixedProps/fixed_props.gd" id="1_tftot"]
 [ext_resource type="Texture2D" uid="uid://kp58jm4lr4ax" path="res://icon.svg" id="2_0gdvu"]
