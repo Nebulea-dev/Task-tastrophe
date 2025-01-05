@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://d4mn600oe432k"]
+[gd_scene load_steps=13 format=4 uid="uid://d4mn600oe432k"]
 
 [ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="1_2wjc7"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_w68es"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="7_2lkxp"]
 [ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="7_3km8w"]
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="9_ycc60"]
+[ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="10_uaxw8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]
 texture = ExtResource("2_1xipb")
@@ -101,3 +102,6 @@ position = Vector2(668, 329)
 
 [node name="Bomb2" parent="." instance=ExtResource("9_ycc60")]
 position = Vector2(737, 766)
+
+[node name="Defuser" parent="." instance=ExtResource("10_uaxw8")]
+position = Vector2(570, 236)

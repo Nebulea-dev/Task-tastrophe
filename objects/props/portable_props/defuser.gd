@@ -1,7 +1,7 @@
 extends PortableProps
 
-class_name Bomb
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	readyHook()
 
