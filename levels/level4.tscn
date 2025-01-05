@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="4_tun7l"]
 [ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="5_wht4x"]
 [ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="6_t18tp"]
-[ext_resource type="PackedScene" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="7_s37pk"]
+[ext_resource type="PackedScene" uid="uid://rpenf4lsnyii" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="7_s37pk"]
 [ext_resource type="PackedScene" uid="uid://ck07h3y8evh3o" path="res://objects/props/ShrineChance/ShrineChance.tscn" id="8_ce6d6"]
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="9_cd3ok"]
 [ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="10_iskuj"]

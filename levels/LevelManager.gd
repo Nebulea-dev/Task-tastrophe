@@ -105,44 +105,55 @@ func createPropsforShrine ():
 	pass	
 
 func Missionfail ():
-	# Ecran de echec 
+	level_fail_label.visible = true
+	level_fail_sound.play()
+	
 	var timer :Timer = Timer.new()
 	timer.one_shot = true
 	add_child(timer)
 	timer.timeout.connect(changeLevelFail)
-	timer.start(5.0)
-	pass
+	timer.start(6.0)
 	
-func changeLevelFail()	:
+	
+func changeLevelFail():
+	await SceneTransition.close_circle()
+	
 	var levelSelector_scene = load("res://MainMenu/LevelSelector.tscn")
 	var levelSelector= levelSelector_scene.instantiate()
 	get_parent().add_child(levelSelector)
-	levelSelector.set_selected_level(levelSelector.current_selection , idLevel)
-	levelSelector.current_selection= idLevel
+	levelSelector.set_selected_level(levelSelector.current_selection, idLevel)
+	levelSelector.current_selection = idLevel
+	
 	queue_free()
-	pass
-func MissionPass ():
+	await SceneTransition.open_circle()
+	
+	
+func MissionPass():
 	Signals.stop_timer.emit()
-	# Ecran de victoire 
-	var timer :Timer = Timer.new()
 	
+	level_success_label.visible = true
+	level_success_sound.play()
+	
+	var timer: Timer = Timer.new()
 	timer.one_shot = true
-	
-	add_child(timer)
 	timer.timeout.connect(changeLevelSucceed)
+	add_child(timer)
+	
 	timer.start(3.0)
 
-func changeLevelSucceed()	:
+func changeLevelSucceed():
+	await SceneTransition.close_circle()
+	
 	var levelSelector_scene = load("res://MainMenu/LevelSelector.tscn")
-	var levelSelector= levelSelector_scene.instantiate()
+	var levelSelector = levelSelector_scene.instantiate()
 	get_parent().add_child(levelSelector)
-	levelSelector.max_unlocked_level= max (idLevel+1 , levelSelector.max_unlocked_level)
+	levelSelector.max_unlocked_level = max(idLevel + 1, levelSelector.max_unlocked_level)
 	levelSelector.hide_unlocked_levels(levelSelector.max_unlocked_level)
 	
-	levelSelector.set_selected_level(levelSelector.current_selection , idLevel)
+	levelSelector.set_selected_level(levelSelector.current_selection, idLevel)
 	levelSelector.current_selection= idLevel
 	queue_free()
-	pass
+	await SceneTransition.open_circle()
 
 func initializeTimer(initialTime: float):
 	Signals.set_timer_value.emit(initialTime)
