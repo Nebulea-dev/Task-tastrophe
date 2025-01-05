@@ -33,22 +33,22 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	var remaining_time: float = GameTimer.time_left
-	var min: int = int(remaining_time / 60)
+	var minutes: int = int(remaining_time / 60)
 	var sec: int = int(remaining_time) % 60
 	var ms: int = int(remaining_time * 100) % 100
 	GameTimerText.clear()
-	GameTimerText.append_text("[img width=\"120\" height=\"120\"]res://Aseprite/Hourglass.png[/img]%d:%02d:%02d" % [min, sec, ms])
+	GameTimerText.append_text("[img width=\"120\" height=\"120\"]res://Aseprite/Hourglass.png[/img]%d:%02d:%02d" % [minutes, sec, ms])
 
 func set_timer_value(time: float):
 	timer_initial_value = time
 	
-	var min: int = int(time / 60)
+	var minutes: int = int(time / 60)
 	var sec: int = int(time) % 60
 	var ms: int = int(time * 100) % 100 
 	
 	GameTimer.stop()
 	GameTimerText.clear()
-	GameTimerText.append_text("[img width=\"120\" height=\"120\"]res://Aseprite/Hourglass.png[/img]%d:%02d:%02d" % [min, sec, ms])
+	GameTimerText.append_text("[img width=\"120\" height=\"120\"]res://Aseprite/Hourglass.png[/img]%d:%02d:%02d" % [minutes, sec, ms])
 	
 	
 func start_timer():
