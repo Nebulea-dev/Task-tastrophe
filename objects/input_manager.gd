@@ -10,11 +10,6 @@ static var move_directions_x:Array[float] = [0,0,0]
 static var move_directions_y:Array[float] = [0,0,0]
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	update_input()
@@ -23,9 +18,11 @@ func _process(_delta: float) -> void:
 	update_activation_input()
 	update_drop_input()
 	if Input.is_action_pressed("ui_cancel"):
+		await SceneTransition.close_circle()
 		var main_menu_scene = load("res://MainMenu/main_menu.tscn")
 		get_parent().get_parent().add_child(main_menu_scene.instantiate())
 		get_parent().queue_free()
+		await SceneTransition.open_circle()
 
 func update_input():
 	# Horizontal input

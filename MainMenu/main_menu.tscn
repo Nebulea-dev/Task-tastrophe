@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://doyhak1mfw73"]
+[gd_scene load_steps=4 format=3 uid="uid://doyhak1mfw73"]
 
 [ext_resource type="Script" path="res://MainMenu/main_menu.gd" id="1_gpndq"]
 [ext_resource type="FontFile" uid="uid://cvquxx4shln8m" path="res://Fonts/ThaleahFat.ttf" id="2_hx24q"]
+[ext_resource type="PackedScene" uid="uid://8dc2ml5j56wu" path="res://GameUI/SceneTransition.tscn" id="3_33em6"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -123,3 +124,6 @@ theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_hx24q")
 theme_override_font_sizes/font_size = 100
 text = "exit"
+
+[node name="SceneTransition" parent="." instance=ExtResource("3_33em6")]
+layout_mode = 2

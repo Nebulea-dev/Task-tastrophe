@@ -52,8 +52,10 @@ func set_current_selection(_current_selection):
 
 func handle_selection(_current_selection):
 	if _current_selection == 0:
+		await SceneTransition.close_circle()
 		get_parent().add_child(level_1_scene.instantiate())
 		queue_free()
+		await SceneTransition.open_circle()
 		
 	if _current_selection == 2:
 		get_parent().add_child(level_selection_scene.instantiate())
