@@ -62,4 +62,5 @@ func handle_selection(_current_selection):
 		queue_free()
 		
 	if _current_selection == 3:
+		await SceneTransition.close_circle()
 		get_tree().quit()
