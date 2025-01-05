@@ -23,27 +23,26 @@ func _process(_delta: float) -> void:
 	pass
 	
 func createPropsForMission () -> void :
-	
 	for mission:Mission in ListMission :
 		mission.finshMission.connect(updateMission)
 		match mission.type : 
 			mission.TypeMission.TARGET:
 				createPropsforTarget(mission)
-			mission.TypeMission.SHRINECHANCE:	
+			mission.TypeMission.SHRINECHANCE:
 				createPropsforShrine()
 				
 func createPropsforTarget (mission: Mission) ->  void :
 	for child:Node in get_children() :
 		if child is TargetManager:
 			var target :TargetManager = child
-			target.finishMission.connect(mission.testifMissionFinnshed)
+			target.finishMission.connect(mission.testIfMissionFinshed)
 	pass
 
 func createPropsforShrine ()->  void:
 	
 	pass
 func updateMission(missionid:int):
-	print("Mission ",missionid, "finnished")
+	print("Mission ",missionid, " finished")
 	updateMissionUI()
 	
 func initializeTimer(initialTime: float):
