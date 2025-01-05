@@ -24,6 +24,8 @@ func _ready() -> void:
 	Signals.start_timer.connect(start_timer)
 	Signals.stop_timer.connect(stop_timer)
 	
+	GameTimer.timeout.connect(timer_ended)
+	
 	close_player_mission_tab(0)
 	close_player_mission_tab(1)
 	close_player_mission_tab(2)
@@ -54,6 +56,9 @@ func start_timer():
 	
 func stop_timer():
 	GameTimer.stop()
+	
+func timer_ended():
+	Signals.timer_ended.emit()
 
 
 func _on_update_player_mission(player: int, missions: Array[Mission]):
