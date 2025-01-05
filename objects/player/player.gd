@@ -13,6 +13,7 @@ signal press_action(playerIndex: int, player: Player)
 @export var speed : int = 500
 
 var inputManager :Node 
+
 var playerIndex : int = 0
 var targetDir : Vector2 = Vector2(0, 0)
 var real_velocity : Vector2
@@ -29,6 +30,7 @@ var push_force = 80.0
 
 var prop_in_hand: PortableProps = null
 
+var prop_mutex : Mutex = Mutex.new()
 var nb_prop_connected: int = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -136,23 +138,32 @@ func _on_player_action(activation_array : Array[bool]) -> void:
 		$ClickSound.play()
 
 func carry_prop(prop: PortableProps) -> void:
-	drop_current_prop()
+	prop_mutex.lock()
+	drop_current_prop(false)
 	add_prop_to_hand(prop)
+	prop_mutex.unlock()
 
-func drop_current_prop() -> void:
+func drop_current_prop(take_mutex: bool) -> void:
+	if take_mutex: 
+		prop_mutex.lock()
+
+	var curr_prop = prop_in_hand
 	if prop_in_hand:
-		print("hoh")
-		prop_in_hand.process_mode = Node.PROCESS_MODE_INHERIT
-		prop_in_hand.get_parent().remove_child(prop_in_hand)
-		get_parent().get_parent().call_deferred("add_child", prop_in_hand)
-		prop_in_hand.set_global_position(self.global_position)
 		prop_in_hand = null
-		pass
+		curr_prop.process_mode = Node.PROCESS_MODE_INHERIT
+		curr_prop.get_parent().remove_child(curr_prop)
+		call_deferred("add_child_custom", curr_prop)
+		curr_prop.set_global_position(self.global_position)
+	
+	if take_mutex: 
+		prop_mutex.unlock()
 
 func add_prop_to_hand(prop: PortableProps) -> void:
+	prop_in_hand = prop
 	prop.process_mode = Node.PROCESS_MODE_DISABLED
 	prop.get_parent().remove_child(prop)
+	call("add_child", prop)
 	prop.set_position(Vector2(0,-30))
-	call_deferred("add_child", prop)
-	prop_in_hand = prop
 	
+func add_child_custom(prop: PortableProps):
+	get_parent().get_parent().add_child(prop)
