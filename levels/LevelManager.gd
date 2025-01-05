@@ -46,8 +46,9 @@ func createPropsForShrine ()->  void:
 func createPropsForZone (mission: Mission) ->  void:
 	for child:Node in get_children() :
 		if child is ZoneDetector:
-			var grass: ZoneDetector = child
-			grass.tryFinishMission.connect(mission.testIfMissionFinshed)
+			var zone: ZoneDetector = child
+			if zone.detector_id == mission.missionId:
+				zone.tryFinishMission.connect(mission.testIfMissionFinshed)
 
 
 func updateMission(type: int, mission_id: int):
