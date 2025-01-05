@@ -15,6 +15,5 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body is Defuser:
-		bomb_defused.emit()
-		$BombDefuseSound.play()
-		self.visible = false
+		Signals.bomb_defused.emit()
+		queue_free()

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvb0bl2briw0p"]
+
+[ext_resource type="AudioStream" uid="uid://d31bxptiwp5uk" path="res://assets/MMO_Game_Magic_Source_Fire_13_Blow_Torch_Shot.wav" id="1_3rjnv"]
+[ext_resource type="Script" path="res://objects/managers/deferred_sound_manager.gd" id="1_sclwv"]
+
+[node name="DeferredSoundManager" type="Node"]
+script = ExtResource("1_sclwv")
+
+[node name="BombDefuseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3rjnv")
