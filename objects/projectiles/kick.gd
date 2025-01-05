@@ -32,5 +32,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.apply_central_impulse(curr_velocity.normalized() * push_force)
 	else:
 		if body is Player:
-			body.drop_current_prop()
+			body.drop_current_prop(true)
 			body.move_and_collide(curr_velocity.normalized() * kick_deplacement)
