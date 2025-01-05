@@ -14,6 +14,7 @@ func _ready() -> void:
 	readyHook()
 
 func readyHook() -> void:
+	nbMission = ListMission.size()
 	createPropsForMission()
 	initializeTimer(allowedTime)
 	updateMissionUI()
@@ -35,6 +36,8 @@ func createPropsForMission () -> void :
 				createPropsForZone(mission)
 			TypeMission.WAIT_FOR_PRESS:
 				createPropsForWaitForPress(mission)
+			TypeMission.BOMB:
+				createPropsForBomb(mission)
 				
 func createPropsForTarget(mission: Mission) ->  void :
 	for child:Node in get_children() :
@@ -59,6 +62,13 @@ func createPropsForWaitForPress (mission: Mission) ->  void:
 			var buzzer: Buzzer = child
 			if buzzer.buzzer_id == mission.missionId:
 				buzzer.tryFinishMission.connect(mission.testIfMissionFinshed)
+
+func createPropsForBomb (mission: Mission) ->  void:
+	for child:Node in get_children() :
+		if child is Bomb:
+			var bomb: Bomb = child
+			if bomb.bomb_id == mission.missionId:
+				bomb.tryFinishMission.connect(mission.forceFinishMission)
 
 
 func updateMission(type: int, mission_id: int):

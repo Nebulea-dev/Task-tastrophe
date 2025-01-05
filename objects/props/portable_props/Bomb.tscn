@@ -34,4 +34,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_b25gs")
 
+[node name="NumberLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "A"
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -146,13 +146,18 @@ position = Vector2(1442, 321)
 scale = Vector2(24, 16)
 
 [node name="Bomb" parent="." instance=ExtResource("11_88ysa")]
-position = Vector2(668, 329)
-
-[node name="Bomb2" parent="." instance=ExtResource("11_88ysa")]
-position = Vector2(737, 766)
+position = Vector2(1587, 335)
 
 [node name="Defuser" parent="." instance=ExtResource("12_2mkk1")]
-position = Vector2(570, 236)
+position = Vector2(578, 253)
 
 [node name="Buzzer" parent="." instance=ExtResource("12_170g2")]
 position = Vector2(361, 417)
+
+[node name="Bomb2" parent="." instance=ExtResource("11_88ysa")]
+position = Vector2(660, 287)
+bomb_id = 1
+
+[node name="Defuser2" parent="." instance=ExtResource("12_2mkk1")]
+position = Vector2(1348, 200)
+bomb_id = 1

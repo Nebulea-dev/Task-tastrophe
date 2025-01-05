@@ -21,3 +21,9 @@ func testIfMissionFinshed(id_player: int)->void :
 	if(id_player == playerId and not done):
 		done = true
 		finshMission.emit(type, missionId)
+
+func forceFinishMission() -> void:
+	print("Nan mais connard là")
+	if not done:
+		done = true
+		finshMission.emit(type, missionId)
