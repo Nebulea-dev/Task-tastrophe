@@ -105,61 +105,57 @@ func createPropsforShrine ():
 	pass	
 
 func Missionfail ():
-	level_fail_label.visible = true
-	level_fail_sound.play()
-	
+	# Ecran de echec 
 	var timer :Timer = Timer.new()
 	timer.one_shot = true
 	add_child(timer)
 	timer.timeout.connect(changeLevelFail)
-	timer.start(6.0)
+	timer.start(5.0)
+	pass
 	
-	
-func changeLevelFail():
-	await SceneTransition.close_circle()
-	
+func changeLevelFail()	:
 	var levelSelector_scene = load("res://MainMenu/LevelSelector.tscn")
 	var levelSelector= levelSelector_scene.instantiate()
 	get_parent().add_child(levelSelector)
-	levelSelector.set_selected_level(levelSelector.current_selection, idLevel)
-	levelSelector.current_selection = idLevel
-	
-	queue_free()
-	await SceneTransition.open_circle()
-	
-	
-func MissionPass():
-	Signals.stop_timer.emit()
-	
-	level_success_label.visible = true
-	level_success_sound.play()
-	
-	var timer: Timer = Timer.new()
-	timer.one_shot = true
-	timer.timeout.connect(changeLevelSucceed)
-	add_child(timer)
-	
-	timer.start(3.0)
-
-func changeLevelSucceed():
-	await SceneTransition.close_circle()
-	
-	var levelSelector_scene = load("res://MainMenu/LevelSelector.tscn")
-	var levelSelector = levelSelector_scene.instantiate()
-	get_parent().add_child(levelSelector)
-	levelSelector.max_unlocked_level = max(idLevel + 1, levelSelector.max_unlocked_level)
-	levelSelector.hide_unlocked_levels(levelSelector.max_unlocked_level)
-	
-	levelSelector.set_selected_level(levelSelector.current_selection, idLevel)
+	levelSelector.set_selected_level(levelSelector.current_selection , idLevel)
 	levelSelector.current_selection= idLevel
 	queue_free()
-	await SceneTransition.open_circle()
+	pass
+func MissionPass ():
+	Signals.stop_timer.emit()
+	# Ecran de victoire 
+	var timer :Timer = Timer.new()
+	
+	timer.one_shot = true
+	
+	add_child(timer)
+	timer.timeout.connect(changeLevelSucceed)
+	timer.start(3.0)
+
+func changeLevelSucceed()	:
+	var levelSelector_scene = load("res://MainMenu/LevelSelector.tscn")
+	var levelSelector= levelSelector_scene.instantiate()
+	get_parent().add_child(levelSelector)
+	levelSelector.max_unlocked_level= max (idLevel+1 , levelSelector.max_unlocked_level)
+	levelSelector.hide_unlocked_levels(levelSelector.max_unlocked_level)
+	
+	levelSelector.set_selected_level(levelSelector.current_selection , idLevel)
+	levelSelector.current_selection= idLevel
+	queue_free()
+	pass
 
 func initializeTimer(initialTime: float):
 	Signals.set_timer_value.emit(initialTime)
 	Signals.start_timer.emit()
 	
 func updateMissionUI():
+	#var mission1: Mission = Mission.new(false, "Move to the next box")
+	#var mission2: Mission = Mission.new(true, "Defuse da [img width=\"50\" height=\"50\"]res://Aseprite/Bomb.png[/img]")
+	#var mission3: Mission = Mission.new(false, "Touch grass")
+	#var mission4: Mission = Mission.new(true, "Get a haircut")
+	
+	#var missions: Array[Mission] = [mission1, mission2, mission3, mission4]
+	
 	var missions_player1: Array[Mission]
 	var missions_player2: Array[Mission]
 	var missions_player3: Array[Mission]
