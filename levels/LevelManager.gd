@@ -38,13 +38,15 @@ func assignMissionsToPlayers(listMissions: Array[Mission]) -> Array[Mission]:
 	return listMissions
 
 func createPropsForMission () -> void :
+	var listshrineUse= []
 	for mission:Mission in ListMission :
 		mission.finshMission.connect(updateMission)
+		
 		match mission.type : 
 			TypeMission.TARGET:
 				createPropsForTarget(mission)
 			TypeMission.SHRINECHANCE:
-				createPropsForShrine()
+				listshrineUse=createPropsForShrine(mission,listshrineUse)
 			TypeMission.ZONE:
 				createPropsForZone(mission)
 			TypeMission.WAIT_FOR_PRESS:
@@ -57,10 +59,17 @@ func createPropsForTarget(mission: Mission) ->  void :
 		if child is TargetManager:
 			var target :TargetManager = child
 			target.tryFinishMission.connect(mission.testIfMissionFinshed)
+			target.AddAuthorizePlayer([true,true,true])
 
-
-func createPropsForShrine ()->  void:
-	pass
+func createPropsForShrine (mission: Mission,listShrineUse :Array)->  Array:
+	for child:Node in get_children() :
+		if child is ShrineChance and not listShrineUse.has(child) :
+			var chance :ShrineChance = child
+			chance.shrineChance_finished.connect(mission.testIfMissionFinshed)
+			chance.playerAuthorize= mission.playerId
+			chance.updateText(mission.missionId)
+			listShrineUse.append(child)
+	return listShrineUse
 
 func createPropsForZone (mission: Mission) ->  void:
 	for child:Node in get_children() :

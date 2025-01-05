@@ -8,7 +8,7 @@ var isChallengeStarted : bool = false
 var nbInChallenge : int = 3
 var currInChallenge : int = -1
  
-var authorizePlayerID : Array
+var authorizePlayerID : Array = [false,false,false]
 
 signal tryFinishMission(playerId :int)
 # Called when the node enters the scene tree for the first time.
@@ -29,14 +29,14 @@ func _process(_delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and authorizePlayerID[body.playerIndex]:
 		#if authorize 
 		body.press_action.connect(_on_action_pressed)
 
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body is Player:
+	if body is Player and authorizePlayerID[body.playerIndex]:
 		body.press_action.disconnect(_on_action_pressed)
 
 
@@ -65,5 +65,6 @@ func _on_action_pressed(playerIndex: int, _player: Player) -> void:
 		
 
 	
-func SetAuthorizePlayer(authorizePlayer: Array)-> void :
+func AddAuthorizePlayer(authorizePlayer: Array)-> void :
 	authorizePlayerID=authorizePlayer
+	

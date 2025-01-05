@@ -109,5 +109,5 @@ func hide_unlocked_levels(max_level: int) -> void:
 			selector.get_node("Locked").visible = true
 			selector.get_node("Option").text = ""
 		else :
-			
+			selector.get_node("Option").text = "%d" % (i+1)
 			selector.get_node("Locked").visible = false
