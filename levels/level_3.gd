@@ -2,8 +2,9 @@ extends LevelManager
 
 # Called when the node enters the scene tree for the first time.
 
-func _ready() -> void:
-	idLevel = 3
+func init(_nb_players: int) -> void:
+	nb_players = _nb_players
+	idLevel = 2
 	isDone = false
 	var mission1: Mission = Mission.new(TypeMission.TARGET, 0, 0, false, "Move to the targets")
 	var mission2: Mission = Mission.new(TypeMission.ZONE, 0, 1, false, "Touch Grass")
