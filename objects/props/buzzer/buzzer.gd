@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
@@ -30,7 +30,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player: 
 		body.press_action.disconnect(_on_action_pressed)
 
-func _on_action_pressed(playerIndex: int,player: Player ) -> void: 
+func _on_action_pressed(playerIndex: int, _player: Player ) -> void: 
 	if not isButtonPushed:
 		$AnimationPlayer.play("Push")
 		$WaitForRePressTimer.start()
