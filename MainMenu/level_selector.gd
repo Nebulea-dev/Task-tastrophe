@@ -19,13 +19,14 @@ extends MarginContainer
 const level_1_scene = preload("res://levels/Level1.tscn")
 const level_2_scene = preload("res://levels/Level2.tscn")
 const level_3_scene = preload("res://levels/Level3.tscn")
+const level_5_scene = preload("res://levels/Level5.tscn")
 
 var selected_level = -1
 var current_selection = 0
 var previous_selection = 0
 const NUM_OF_LEVELS = 10
 
-var max_unlocked_level = 2
+var max_unlocked_level = 10
 
 func _ready() -> void:
 	hide_unlocked_levels(max_unlocked_level)
@@ -142,6 +143,8 @@ func handle_player_selection(player_amount: int) -> void:
 		level_node = level_2_scene.instantiate()
 	if selected_level == 2:
 		level_node = level_3_scene.instantiate()
+	if selected_level == 4:
+		level_node = level_5_scene.instantiate()
 		
 	get_parent().add_child(level_node)
 	level_node.init(player_amount + 2)
