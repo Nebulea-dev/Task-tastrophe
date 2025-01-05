@@ -7,13 +7,17 @@ var isDone: bool = false
 var allowedTime = 120.0
 var ListMission: Array[Mission] = []
 var ListPropsOther = []
+
 var nbMission= 1
+
+var nb_players = 2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
  # Replace with function body.
 	readyHook()
 
 func readyHook() -> void:
+	ListMission = assignMissionsToPlayers(ListMission)
 	nbMission = ListMission.size()
 	createPropsForMission()
 	initializeTimer(allowedTime)
@@ -23,7 +27,16 @@ func readyHook() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
-	
+
+
+func assignMissionsToPlayers(listMissions: Array[Mission]) -> Array[Mission]:
+	listMissions.shuffle()
+	var currPlayer: int = 0
+	for mission in listMissions:
+		mission.playerId = currPlayer
+		currPlayer = (currPlayer + 1) % nb_players
+	return listMissions
+
 func createPropsForMission () -> void :
 	for mission:Mission in ListMission :
 		mission.finshMission.connect(updateMission)

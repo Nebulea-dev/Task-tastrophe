@@ -86,12 +86,15 @@ func set_selected_level(previous_level: int, level: int) -> void:
 	selector.get_node("Selected").visible = true
 
 func handle_selection(level: int) -> void:
+	var level_node
 	if level == 0:
-		get_parent().add_child(level_1_scene.instantiate())
-		queue_free()
+		level_node = level_1_scene.instantiate()
 	if level == 1:
-		get_parent().add_child(level_2_scene.instantiate())
-		queue_free()
+		level_node = level_2_scene.instantiate()
+		
+	get_parent().add_child(level_node)
+	level_node.nb_players = 3
+	queue_free()
 
 func hide_unlocked_levels(max_level: int) -> void:
 	for i in range(0, NUM_OF_LEVELS):
