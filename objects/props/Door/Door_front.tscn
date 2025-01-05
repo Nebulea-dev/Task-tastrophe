@@ -1,0 +1,85 @@
+[gd_scene load_steps=8 format=3 uid="uid://dio0sk0e83p3n"]
+
+[ext_resource type="Script" path="res://objects/props/Door/door.gd" id="1_cd0yf"]
+[ext_resource type="Texture2D" uid="uid://kpcefv4ewqgc" path="res://objects/props/Door/Front.png" id="2_li35b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua0dj"]
+size = Vector2(65, 65)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yqxsq"]
+radius = 52.5595
+
+[sub_resource type="Animation" id="Animation_5j8mr"]
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qoai7"]
+_data = {
+"Close": SubResource("Animation_5j8mr"),
+"Open": SubResource("Animation_lxxxy")
+}
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_cd0yf")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="Collision" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ua0dj")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("CircleShape2D_yqxsq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_li35b")
+hframes = 2
+vframes = 2
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layers": ["Front"],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://Aseprite/Door.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "06ab6376a2108ed6c7760a260f88dbab"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qoai7")
+}
+playback_auto_capture = false
+movie_quit_on_finish = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
