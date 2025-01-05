@@ -19,6 +19,7 @@ func _ready() -> void:
 	Signals.update_player_mission.connect(_on_update_player_mission)
 	Signals.close_player_mission_tab.connect(close_player_mission_tab)
 	Signals.expand_player_mission_tab.connect(expand_player_mission_tab)
+	Signals.update_UI_nb_player.connect(update_UI_nb_player)
 	
 	Signals.set_timer_value.connect(set_timer_value)
 	Signals.start_timer.connect(start_timer)
@@ -169,3 +170,21 @@ func expand_player_mission_tab(player: int):
 	tween_text_size.tween_property(player_missions_text, "size:y", 680, 0.4)
 	#player_missions_text.size = Vector2(448, 680)
 	
+func update_UI_nb_player(nb_players: int):
+	if nb_players == 2:
+		Player_1_tab.visible = true
+		Player_2_tab.visible = true
+		Player_3_tab.visible = false
+		Player_4_tab.visible = false
+		
+	if nb_players == 3:
+		Player_1_tab.visible = true
+		Player_2_tab.visible = true
+		Player_3_tab.visible = true
+		Player_4_tab.visible = false
+		
+	if nb_players == 4:
+		Player_1_tab.visible = true
+		Player_2_tab.visible = true
+		Player_3_tab.visible = true
+		Player_4_tab.visible = true

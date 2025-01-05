@@ -144,8 +144,7 @@ func handle_player_selection(player_amount: int) -> void:
 		level_node = level_3_scene.instantiate()
 		
 	get_parent().add_child(level_node)
-	print("num of player : ", player_amount + 2)
-	level_node.nb_players = player_amount + 2
+	level_node.init(player_amount + 2)
 	queue_free()
 		
 	await SceneTransition.open_circle()

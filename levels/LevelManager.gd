@@ -8,19 +8,16 @@ class_name LevelManager
 @onready var level_success_label = $WinLoseManager/CanvasLayer/LevelSuccessLabel
 @onready var level_fail_label = $WinLoseManager/CanvasLayer/LevelFailLabel
 
+@onready var playersManager = $PlayersManager
+
 var idLevel: int = 2 ;
 var isDone: bool = false
 var allowedTime = 120.0
 var ListMission: Array[Mission] = []
 var ListPropsOther = []
 
-var nbMission= 1
-
-var nb_players = 3
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
- # Replace with function body.
-	readyHook()
+var nbMission = 1
+var nb_players = 1
 
 func readyHook() -> void:
 	ListMission = assignMissionsToPlayers(ListMission)
@@ -28,11 +25,9 @@ func readyHook() -> void:
 	createPropsForMission()
 	initializeTimer(allowedTime)
 	updateMissionUI()
+	playersManager.init_player_placement(nb_players)
+	Signals.update_UI_nb_player.emit(nb_players)
 	Signals.timer_ended.connect(Missionfail)
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
 
 
 func assignMissionsToPlayers(listMissions: Array[Mission]) -> Array[Mission]:

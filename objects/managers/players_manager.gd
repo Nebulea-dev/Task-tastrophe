@@ -4,15 +4,12 @@ extends Node2D
 
 var res_player = preload("res://objects/player/Player.tscn")
 
-var nb_players: int = 3
-
 var list_sprites: Array[CompressedTexture2D] = [load("res://Aseprite/Character_Pink.png"), load("res://Aseprite/Character_Blue.png"), load("res://Aseprite/Character_Green.png"), load("res://Aseprite/Character_Yellow.png")]
 
 
 # TODO setup player positions with the map
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func init_player_placement(nb_players) -> void:
 	for id in range(nb_players):
 		var player = res_player.instantiate()
 		player.get_node("./PrincipalSprite").texture = list_sprites[id]
