@@ -42,6 +42,14 @@ func update_input():
 		else:
 			move_directions_x[1] = 0
 			
+	if Input.is_action_pressed("player3_left"):
+		move_directions_x[2] = -Input.get_action_strength("player3_left")
+	else:
+		if Input.is_action_pressed("player3_right"):
+			move_directions_x[2] = Input.get_action_strength("player3_right")
+		else:
+			move_directions_x[2] = 0
+			
 			
 	# Vertical input
 	if Input.is_action_pressed("player1_up"):
@@ -59,6 +67,14 @@ func update_input():
 			move_directions_y[1] = Input.get_action_strength("player2_down")
 		else:
 			move_directions_y[1] = 0
+		
+	if Input.is_action_pressed("player3_up"):
+		move_directions_y[2] = -Input.get_action_strength("player3_up")
+	else:
+		if Input.is_action_pressed("player3_down"):
+			move_directions_y[2] = Input.get_action_strength("player3_down")
+		else:
+			move_directions_y[2] = 0
 
 	move_update.emit(move_directions_x, move_directions_y)
 	
@@ -74,6 +90,12 @@ func update_input():
 		
 	if Input.is_action_just_released("player2_mission"):
 		Signals.close_player_mission_tab.emit(1)
+		
+	if Input.is_action_just_pressed("player3_mission"):
+		Signals.expand_player_mission_tab.emit(2)
+		
+	if Input.is_action_just_released("player3_mission"):
+		Signals.close_player_mission_tab.emit(2)
 
 
 func update_kick_input() -> void:
@@ -84,6 +106,9 @@ func update_kick_input() -> void:
 
 	if Input.is_action_just_pressed("player2_kick"):
 		player_kick[1] = true
+
+	if Input.is_action_just_pressed("player3_kick"):
+		player_kick[2] = true
 
 	kick_update.emit(player_kick)
 
@@ -97,6 +122,9 @@ func update_ping_input() -> void:
 	if Input.is_action_just_pressed("player2_ping"):
 		player_ping[1] = true
 
+	if Input.is_action_just_pressed("player3_ping"):
+		player_ping[2] = true
+
 	ping_update.emit(player_ping)
 
 func update_activation_input() -> void:
@@ -107,6 +135,9 @@ func update_activation_input() -> void:
 	if Input.is_action_just_pressed("player2_activated"):
 		player_activation[1] = true
 
+	if Input.is_action_just_pressed("player3_activated"):
+		player_activation[2] = true
+
 	activated_update.emit(player_activation)
 
 func update_drop_input() -> void:
@@ -116,5 +147,8 @@ func update_drop_input() -> void:
 
 	if Input.is_action_just_pressed("player2_drop"):
 		player_drop[1] = true
+
+	if Input.is_action_just_pressed("player3_drop"):
+		player_drop[2] = true
 
 	drop_update.emit(player_drop)
