@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="11_88ysa"]
 [ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="12_2mkk1"]
 [ext_resource type="PackedScene" uid="uid://c258ha18bi4yb" path="res://objects/props/buzzer/Buzzer.tscn" id="12_170g2"]
+[ext_resource type="PackedScene" uid="uid://by218ve54sa1c" path="res://GameUI/WinLoseManager.tscn" id="13_1xjup"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]
 texture = ExtResource("3_e5tco")
@@ -124,6 +125,8 @@ position = Vector2(1346, 311)
 
 [node name="TargetManager" parent="." instance=ExtResource("8_amux2")]
 position = Vector2(685, 194)
+
+[node name="WinLoseManager" parent="." instance=ExtResource("13_1xjup")]
 
 [node name="MoveTargetList" type="Node2D" parent="."]
 

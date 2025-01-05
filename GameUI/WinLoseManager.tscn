@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://by218ve54sa1c"]
+
+[ext_resource type="AudioStream" uid="uid://bi6dfs5s41d6r" path="res://assets/victory.wav" id="1_rhd4e"]
+[ext_resource type="AudioStream" uid="uid://bix4r41l141a0" path="res://assets/Mario Kart Wii Music - Finish Out & Losing Results (Race)-[AudioTrimmer.com].mp3" id="2_v80wg"]
+[ext_resource type="FontFile" uid="uid://cvquxx4shln8m" path="res://Fonts/ThaleahFat.ttf" id="3_6chgm"]
+
+[node name="WinLoseManager" type="Node"]
+
+[node name="LevelSuccess" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_rhd4e")
+
+[node name="LevelFail" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v80wg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LevelSuccessLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 45.0
+offset_top = 283.0
+offset_right = 1822.0
+offset_bottom = 1166.0
+theme_override_colors/font_color = Color(0, 0.858824, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("3_6chgm")
+theme_override_font_sizes/font_size = 500
+text = "SUCCESS"
+
+[node name="LevelFailLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 272.0
+offset_top = 216.0
+offset_right = 1741.0
+offset_bottom = 833.0
+theme_override_colors/font_color = Color(0.454902, 0, 0, 1)
+theme_override_constants/outline_size = 50
+theme_override_fonts/font = ExtResource("3_6chgm")
+theme_override_font_sizes/font_size = 500
+text = "DEFEAT"
