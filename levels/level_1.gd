@@ -12,5 +12,5 @@ func _ready() -> void:
 	var mission5: Mission = Mission.new(TypeMission.BOMB, 1, 1, false, "Defuse bomb 1")
 	var mission6: Mission = Mission.new(TypeMission.SHRINECHANCE, 0, 0, false, "Succeed at the luck chance")
 	ListMission = [mission1, mission2, mission3, mission4, mission5]
-	ListPropsOther  =[]
+	ListPropsOther = []
 	readyHook()
