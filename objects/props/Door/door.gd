@@ -12,9 +12,8 @@ func _ready() -> void:
 	collisionShape.disabled = false
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass
-	#if body is Player:
-		#body.press_action.connect(_on_action_pressed)
+	if body is Player:
+		body.press_action.connect(_on_action_pressed)
 
 
 
