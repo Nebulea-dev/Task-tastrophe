@@ -18,6 +18,6 @@ func _init(type_mission : int, id_mission: int, playerid: int, _done: bool, _tex
 
 func testIfMissionFinshed(id_player: int)->void :
 	print("Player ", id_player, " Finished mission ", type, "; ", missionId)
-	if(id_player == playerId):
+	if(id_player == playerId and not done):
 		done = true
 		finshMission.emit(type, missionId)
