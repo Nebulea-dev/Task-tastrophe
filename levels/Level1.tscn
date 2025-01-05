@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=4 uid="uid://d4mn600oe432k"]
+[gd_scene load_steps=16 format=4 uid="uid://d4mn600oe432k"]
 
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_kpfjx"]
 [ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_5pw52"]
 [ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="3_e5tco"]
 [ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="4_w4pme"]
 [ext_resource type="PackedScene" uid="uid://cvb0bl2briw0p" path="res://objects/managers/DeferredSoundManager.tscn" id="6_2p1os"]
+[ext_resource type="PackedScene" uid="uid://ck07h3y8evh3o" path="res://objects/props/ShrineChance/ShrineChance.tscn" id="7_87g40"]
 [ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="7_wrjay"]
 [ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="8_amux2"]
 [ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="9_vufpq"]
-[ext_resource type="PackedScene" uid="uid://rpenf4lsnyii" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="10_pavc7"]
+[ext_resource type="PackedScene" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="10_pavc7"]
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="11_88ysa"]
 [ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="12_2mkk1"]
 [ext_resource type="PackedScene" uid="uid://c258ha18bi4yb" path="res://objects/props/buzzer/Buzzer.tscn" id="12_170g2"]
@@ -117,6 +118,9 @@ inputManagerNode = NodePath("../InputManager")
 [node name="DeferredSoundManager" parent="." instance=ExtResource("6_2p1os")]
 
 [node name="InputManager" parent="." instance=ExtResource("7_wrjay")]
+
+[node name="ShrineOfChance" parent="." instance=ExtResource("7_87g40")]
+position = Vector2(1346, 311)
 
 [node name="TargetManager" parent="." instance=ExtResource("8_amux2")]
 position = Vector2(685, 194)
