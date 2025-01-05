@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="7_2lkxp"]
 [ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="7_3km8w"]
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="9_ycc60"]
-[ext_resource type="PackedScene" path="res://objects/props/portable_props/Defuser.tscn" id="10_uaxw8"]
+[ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="10_uaxw8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]
 texture = ExtResource("2_1xipb")
