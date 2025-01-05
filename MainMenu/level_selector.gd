@@ -146,13 +146,10 @@ func handle_player_selection(player_amount: int) -> void:
 		level_node = level_2_scene.instantiate()
 	if selected_level == 2:
 		level_node = level_3_scene.instantiate()
-<<<<<<< Updated upstream
-	if selected_level == 4:
-		level_node = level_5_scene.instantiate()
-=======
 	if selected_level == 3:
 		level_node = level_4_scene.instantiate()
->>>>>>> Stashed changes
+	if selected_level == 4:
+		level_node = level_5_scene.instantiate()
 		
 	get_parent().add_child(level_node)
 	level_node.init(player_amount + 2)
