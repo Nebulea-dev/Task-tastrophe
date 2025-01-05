@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://d4mn600oe432k"]
+[gd_scene load_steps=17 format=4 uid="uid://d4mn600oe432k"]
 
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_kpfjx"]
 [ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_5pw52"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="11_88ysa"]
 [ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="12_2mkk1"]
 [ext_resource type="PackedScene" uid="uid://c258ha18bi4yb" path="res://objects/props/buzzer/Buzzer.tscn" id="12_170g2"]
-[ext_resource type="PackedScene" uid="uid://by218ve54sa1c" path="res://GameUI/WinLoseManager.tscn" id="13_1xjup"]
+[ext_resource type="PackedScene" uid="uid://dqx6clluw1iha" path="res://GameUI/WinLoseManager.tscn" id="13_1xjup"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]
 texture = ExtResource("3_e5tco")
