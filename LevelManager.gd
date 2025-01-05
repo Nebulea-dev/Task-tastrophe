@@ -26,9 +26,9 @@ func createPropsForMission () -> void :
 	for mission:Mission in ListMission :
 		mission.finshMission.connect(updateMission)
 		match mission.type : 
-			mission.TypeMission.TARGET:
+			TypeMission.TARGET:
 				createPropsforTarget(mission)
-			mission.TypeMission.SHRINECHANCE:
+			TypeMission.SHRINECHANCE:
 				createPropsforShrine()
 				
 func createPropsforTarget (mission: Mission) ->  void :
