@@ -1,12 +1,12 @@
 [gd_scene load_steps=4 format=3 uid="uid://rpenf4lsnyii"]
 
-[ext_resource type="Script" path="res://objects/props/walkable_tiles/grass_detector.gd" id="1_7fnwg"]
-[ext_resource type="AudioStream" uid="uid://b66pa61tdg3t2" path="res://assets/touchedGrass.wav" id="2_7rqcx"]
+[ext_resource type="Script" path="res://objects/props/walkable_tiles/zone_detector.gd" id="1_vbvur"]
+[ext_resource type="AudioStream" uid="uid://b66pa61tdg3t2" path="res://assets/touchedGrass.wav" id="2_bnc37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xg5lu"]
 
 [node name="GrassDetector" type="Node2D"]
-script = ExtResource("1_7fnwg")
+script = ExtResource("1_vbvur")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -16,6 +16,6 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_xg5lu")
 
 [node name="GrassSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_7rqcx")
+stream = ExtResource("2_bnc37")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

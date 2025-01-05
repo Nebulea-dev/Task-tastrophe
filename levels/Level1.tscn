@@ -1,20 +1,19 @@
-[gd_scene load_steps=15 format=4 uid="uid://d4mn600oe432k"]
+[gd_scene load_steps=14 format=4 uid="uid://d4mn600oe432k"]
 
-[ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="1_2wjc7"]
-[ext_resource type="Script" path="res://level_1.gd" id="1_w68es"]
-[ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="2_1xipb"]
-[ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="2_4bkhm"]
-[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_h6k3s"]
-[ext_resource type="Script" path="res://props_manager.gd" id="4_3e5oy"]
-[ext_resource type="PackedScene" uid="uid://cvb0bl2briw0p" path="res://objects/managers/DeferredSoundManager.tscn" id="6_0qxrx"]
-[ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="7_2lkxp"]
-[ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="7_3km8w"]
-[ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="9_ycc60"]
-[ext_resource type="PackedScene" uid="uid://rpenf4lsnyii" path="res://objects/props/walkable_tiles/GrassDetector.tscn" id="10_bdkki"]
-[ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="10_uaxw8"]
+[ext_resource type="Script" path="res://levels/level_1.gd" id="1_kpfjx"]
+[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_5pw52"]
+[ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="3_e5tco"]
+[ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="4_w4pme"]
+[ext_resource type="PackedScene" uid="uid://cvb0bl2briw0p" path="res://objects/managers/DeferredSoundManager.tscn" id="6_2p1os"]
+[ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="7_wrjay"]
+[ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="8_amux2"]
+[ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="9_vufpq"]
+[ext_resource type="PackedScene" uid="uid://rpenf4lsnyii" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="10_pavc7"]
+[ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="11_88ysa"]
+[ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="12_2mkk1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]
-texture = ExtResource("2_1xipb")
+texture = ExtResource("3_e5tco")
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
@@ -94,9 +93,9 @@ physics_layer_0/collision_mask = 66
 sources/0 = SubResource("TileSetAtlasSource_38thi")
 
 [node name="Level1" type="Node2D"]
-script = ExtResource("1_w68es")
+script = ExtResource("1_kpfjx")
 
-[node name="UI" parent="." instance=ExtResource("2_h6k3s")]
+[node name="UI" parent="." instance=ExtResource("2_5pw52")]
 offset_left = 34.0
 offset_top = 10.0
 offset_right = 34.0
@@ -110,49 +109,46 @@ scale = Vector2(5, 5)
 tile_map_data = PackedByteArray("AAADAAEAAAAEAAAAAAAEAAEAAAAFAAAAAAAFAAEAAAAFAAAAAAAGAAEAAAAFAAAAAAAJAAEAAAAGAAAAAAAHAAEAAAAFAAAAAAAIAAEAAAAFAAAAAAAJAAIAAAALAAAAAAAJAAMAAAALAAAAAAAJAAQAAAALAAAAAAAJAAUAAAALAAAAAAAHAAYAAAAAAAIAAAAJAAYAAAAFAAEAAAAIAAYAAAAEAAEAAAADAAIAAAAKAAAAAAADAAMAAAAKAAAAAAADAAQAAAAKAAAAAAADAAUAAAAKAAAAAAADAAYAAAADAAEAAAAEAAYAAAAEAAEAAAAFAAYAAAABAAIAAAAFAAcAAAAKAAAAAAAFAAgAAAAKAAAAAAAFAAkAAAAKAAAAAAAHAAcAAAALAAAAAAAHAAgAAAACAAIAAAAIAAgAAAAFAAAAAAAJAAgAAAAFAAAAAAAKAAgAAAAFAAAAAAALAAgAAAAFAAAAAAAMAAgAAAAFAAAAAAANAAgAAAAFAAAAAAAOAAgAAAAFAAAAAAAPAAgAAAAFAAAAAAAQAAgAAAAFAAAAAAARAAgAAAADAAIAAAAGAAoAAAAEAAEAAAAHAAoAAAAEAAEAAAAIAAoAAAAEAAEAAAAJAAoAAAAEAAEAAAAKAAoAAAAEAAEAAAALAAoAAAAEAAEAAAAMAAoAAAAEAAEAAAANAAoAAAAEAAEAAAAOAAoAAAAEAAEAAAAPAAoAAAAEAAEAAAAQAAoAAAAEAAEAAAARAAoAAAAEAAEAAAASAAoAAAAEAAEAAAAFAAoAAAADAAEAAAARAAEAAAAFAAAAAAASAAEAAAAFAAAAAAATAAEAAAAFAAAAAAAUAAEAAAAFAAAAAAAPAAEAAAAFAAAAAAAQAAEAAAAFAAAAAAAVAAEAAAAGAAAAAAAOAAEAAAAEAAAAAAAOAAIAAAAKAAAAAAAOAAMAAAAKAAAAAAAOAAQAAAAKAAAAAAAOAAUAAAAKAAAAAAAOAAYAAAADAAEAAAAVAAIAAAALAAAAAAAVAAMAAAALAAAAAAAVAAQAAAALAAAAAAAVAAUAAAALAAAAAAAVAAYAAAAFAAEAAAATAAcAAAALAAAAAAATAAgAAAALAAAAAAATAAkAAAALAAAAAAATAAoAAAAFAAEAAAARAAcAAAAKAAAAAAAPAAYAAAAEAAEAAAAQAAYAAAAEAAEAAAARAAYAAAABAAIAAAATAAYAAAAAAAIAAAAUAAYAAAAEAAEAAAARAAQAAAAJAAMAAAARAAMAAAAJAAMAAAARAAIAAAALAAIAAAAQAAIAAAALAAIAAAAPAAIAAAAEAAMAAAAPAAMAAAAFAAMAAAAPAAQAAAAJAAMAAAAPAAUAAAADAAMAAAAQAAUAAAAJAAMAAAAQAAQAAAAJAAMAAAAQAAMAAAAJAAMAAAARAAUAAAAJAAMAAAASAAUAAAAKAAMAAAASAAQAAAAJAAMAAAASAAMAAAAJAAMAAAASAAIAAAALAAIAAAATAAIAAAALAAIAAAATAAMAAAAJAAMAAAATAAQAAAAJAAMAAAATAAUAAAAJAAMAAAAUAAUAAAACAAMAAAAUAAQAAAAJAAMAAAAUAAMAAAAJAAMAAAAUAAIAAAAAAAMAAAASAAYAAAAIAAAAAAASAAcAAAAIAAAAAAASAAgAAAAIAAAAAAASAAkAAAAIAAAAAAARAAkAAAAIAAAAAAAQAAkAAAAIAAAAAAAPAAkAAAAIAAAAAAAOAAkAAAAIAAAAAAANAAkAAAAIAAAAAAAMAAkAAAAIAAAAAAALAAkAAAAIAAAAAAAKAAkAAAAIAAAAAAAJAAkAAAAIAAAAAAAIAAkAAAAIAAAAAAAHAAkAAAAIAAAAAAAGAAkAAAAIAAAAAAAGAAgAAAAIAAAAAAAGAAcAAAAIAAAAAAAGAAYAAAAIAAAAAAAGAAUAAAAIAAAAAAAGAAQAAAAIAAAAAAAGAAMAAAAIAAAAAAAGAAIAAAACAAAAAAAFAAIAAAACAAAAAAAEAAIAAAABAAAAAAAEAAMAAAAHAAAAAAAEAAUAAAAAAAEAAAAFAAUAAAABAAEAAAAFAAQAAAAIAAAAAAAFAAMAAAAIAAAAAAAHAAIAAAACAAAAAAAHAAMAAAAIAAAAAAAHAAQAAAAIAAAAAAAHAAUAAAABAAEAAAAIAAUAAAACAAEAAAAIAAQAAAAJAAAAAAAIAAMAAAAJAAAAAAAIAAIAAAADAAAAAAAEAAQAAAAHAAAAAAABAAUAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_pfkd4")
 
-[node name="PlayersManager" parent="." node_paths=PackedStringArray("inputManagerNode") instance=ExtResource("1_2wjc7")]
+[node name="PlayersManager" parent="." node_paths=PackedStringArray("inputManagerNode") instance=ExtResource("4_w4pme")]
 position = Vector2(522, 309)
 inputManagerNode = NodePath("../InputManager")
 
-[node name="Props Manager" type="Node" parent="."]
-script = ExtResource("4_3e5oy")
+[node name="DeferredSoundManager" parent="." instance=ExtResource("6_2p1os")]
 
-[node name="DeferredSoundManager" parent="." instance=ExtResource("6_0qxrx")]
+[node name="InputManager" parent="." instance=ExtResource("7_wrjay")]
 
-[node name="InputManager" parent="." instance=ExtResource("2_4bkhm")]
-
-[node name="TargetManager" parent="." instance=ExtResource("7_3km8w")]
+[node name="TargetManager" parent="." instance=ExtResource("8_amux2")]
 position = Vector2(685, 194)
 
 [node name="MoveTargetList" type="Node2D" parent="."]
 
-[node name="MoveTarget" parent="MoveTargetList" instance=ExtResource("7_2lkxp")]
+[node name="MoveTarget" parent="MoveTargetList" instance=ExtResource("9_vufpq")]
 position = Vector2(684, 443)
 
-[node name="MoveTarget2" parent="MoveTargetList" instance=ExtResource("7_2lkxp")]
+[node name="MoveTarget2" parent="MoveTargetList" instance=ExtResource("9_vufpq")]
 position = Vector2(1239, 196)
 
-[node name="MoveTarget3" parent="MoveTargetList" instance=ExtResource("7_2lkxp")]
+[node name="MoveTarget3" parent="MoveTargetList" instance=ExtResource("9_vufpq")]
 position = Vector2(1643, 443)
 
-[node name="MoveTarget4" parent="MoveTargetList" instance=ExtResource("7_2lkxp")]
+[node name="MoveTarget4" parent="MoveTargetList" instance=ExtResource("9_vufpq")]
 position = Vector2(1239, 442)
 
-[node name="MoveTarget5" parent="MoveTargetList" instance=ExtResource("7_2lkxp")]
+[node name="MoveTarget5" parent="MoveTargetList" instance=ExtResource("9_vufpq")]
 position = Vector2(971, 761)
 
-[node name="MoveTarget6" parent="MoveTargetList" instance=ExtResource("7_2lkxp")]
+[node name="MoveTarget6" parent="MoveTargetList" instance=ExtResource("9_vufpq")]
 position = Vector2(360, 321)
 
-[node name="GrassDetector" parent="." instance=ExtResource("10_bdkki")]
+[node name="GrassDetector" parent="." instance=ExtResource("10_pavc7")]
 position = Vector2(1442, 321)
 scale = Vector2(24, 16)
 
-[node name="Bomb" parent="." instance=ExtResource("9_ycc60")]
+[node name="Bomb" parent="." instance=ExtResource("11_88ysa")]
 position = Vector2(668, 329)
 
-[node name="Bomb2" parent="." instance=ExtResource("9_ycc60")]
+[node name="Bomb2" parent="." instance=ExtResource("11_88ysa")]
 position = Vector2(737, 766)
 
-[node name="Defuser" parent="." instance=ExtResource("10_uaxw8")]
+[node name="Defuser" parent="." instance=ExtResource("12_2mkk1")]
 position = Vector2(570, 236)
