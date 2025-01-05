@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://d4mn600oe432k"]
+[gd_scene load_steps=15 format=4 uid="uid://d4mn600oe432k"]
 
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_kpfjx"]
 [ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_5pw52"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://rpenf4lsnyii" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="10_pavc7"]
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="11_88ysa"]
 [ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="12_2mkk1"]
+[ext_resource type="PackedScene" uid="uid://c258ha18bi4yb" path="res://objects/props/buzzer/Buzzer.tscn" id="12_170g2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]
 texture = ExtResource("3_e5tco")
@@ -152,3 +153,6 @@ position = Vector2(737, 766)
 
 [node name="Defuser" parent="." instance=ExtResource("12_2mkk1")]
 position = Vector2(570, 236)
+
+[node name="Buzzer" parent="." instance=ExtResource("12_170g2")]
+position = Vector2(361, 417)

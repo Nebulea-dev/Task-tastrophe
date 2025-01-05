@@ -153,7 +153,7 @@ stream = ExtResource("4_51amw")
 
 [node name="FinishTargetsSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_edkeg")
-volume_db = -12.749
+volume_db = -18.559
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

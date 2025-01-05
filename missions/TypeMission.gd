@@ -6,4 +6,5 @@ enum {
   TARGET,
   SHRINECHANCE,
   ZONE,
+  WAIT_FOR_PRESS,
 }

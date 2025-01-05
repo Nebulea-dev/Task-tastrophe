@@ -17,5 +17,6 @@ shape = SubResource("RectangleShape2D_xg5lu")
 
 [node name="GrassSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_bnc37")
+volume_db = -10.458
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

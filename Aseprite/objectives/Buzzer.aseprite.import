@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cosge6sceu0lk"
+path="res://.godot/imported/Buzzer.aseprite-630d94373ac5a9bdfd6a1d2f37df975f.res"
+
+[deps]
+
+source_file="res://Aseprite/objectives/Buzzer.aseprite"
+dest_files=["res://.godot/imported/Buzzer.aseprite-630d94373ac5a9bdfd6a1d2f37df975f.res"]
+
+[params]
+

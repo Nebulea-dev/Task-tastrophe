@@ -1,7 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://ck07h3y8evh3o"]
+[gd_scene load_steps=8 format=3 uid="uid://ck07h3y8evh3o"]
 
 [ext_resource type="Script" path="res://objects/props/ShrineChance/shrine_of_chance.gd" id="1_nycne"]
-[ext_resource type="Texture2D" uid="uid://b4b2wbh4mqdst" path="res://objects/props/walkable_tiles/Targets.png" id="1_vc7yh"]
+[ext_resource type="Texture2D" uid="uid://b2nmv232ap0ax" path="res://objects/props/ShrineChance/LuckShrine.png" id="2_8yx86"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylat8"]
 size = Vector2(65, 65)
@@ -9,39 +9,9 @@ size = Vector2(65, 65)
 [sub_resource type="CircleShape2D" id="CircleShape2D_e512b"]
 radius = 60.5516
 
-[sub_resource type="Animation" id="Animation_q706b"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_ymnrv"]
-resource_name = "TryFail"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.233333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [0, 1, 0]
-}
-
-[sub_resource type="Animation" id="Animation_cbhgw"]
-resource_name = "TrySucceed"
-length = 0.3
+[sub_resource type="Animation" id="Animation_ejhra"]
+length = 0.2
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -49,17 +19,32 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2]
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_sdqq5"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.0333333, 0, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 4, 5, 6, 7]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qoai7"]
 _data = {
-"RESET": SubResource("Animation_q706b"),
-"TryFail": SubResource("Animation_ymnrv"),
-"TrySucceed": SubResource("Animation_cbhgw")
+"Destroy": SubResource("Animation_sdqq5"),
+"Idle": SubResource("Animation_ejhra")
 }
 
 [node name="ShrineOfChance" type="StaticBody2D"]
@@ -80,9 +65,9 @@ shape = SubResource("CircleShape2D_e512b")
 z_index = -1
 texture_filter = 1
 scale = Vector2(4, 4)
-texture = ExtResource("1_vc7yh")
-hframes = 2
-vframes = 2
+texture = ExtResource("2_8yx86")
+hframes = 3
+vframes = 3
 metadata/_aseprite_wizard_interface_config_ = {
 "pending_changes": {}
 }
@@ -96,9 +81,9 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "player": "AnimationPlayer",
 "slice": "",
-"source": "res://Aseprite/objectives/Targets.aseprite"
+"source": "res://Aseprite/LuckShrine.aseprite"
 }
-metadata/_aseprite_wizard_source_file_hash_ = "b27d05d8f0b5ddb1710bfeaa6ec5e398"
+metadata/_aseprite_wizard_source_file_hash_ = "d562e27e2bb41c04b32d2858a2e1ead1"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

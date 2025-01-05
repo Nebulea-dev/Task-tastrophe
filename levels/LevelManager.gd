@@ -32,6 +32,8 @@ func createPropsForMission () -> void :
 				createPropsForShrine()
 			TypeMission.ZONE:
 				createPropsForZone(mission)
+			TypeMission.WAIT_FOR_PRESS:
+				createPropsForWaitForPress(mission)
 				
 func createPropsForTarget(mission: Mission) ->  void :
 	for child:Node in get_children() :
@@ -49,6 +51,13 @@ func createPropsForZone (mission: Mission) ->  void:
 			var zone: ZoneDetector = child
 			if zone.detector_id == mission.missionId:
 				zone.tryFinishMission.connect(mission.testIfMissionFinshed)
+
+func createPropsForWaitForPress (mission: Mission) ->  void:
+	for child:Node in get_children() :
+		if child is Buzzer:
+			var buzzer: Buzzer = child
+			if buzzer.buzzer_id == mission.missionId:
+				buzzer.tryFinishMission.connect(mission.testIfMissionFinshed)
 
 
 func updateMission(type: int, mission_id: int):
