@@ -27,11 +27,13 @@ var propDetected: Node2D
 var can_ping : bool = true
 
 var push_force = 80.0
+var launch_force = 1500.0
 
 var prop_in_hand: PortableProps = null
 
 var prop_mutex : Mutex = Mutex.new()
 var nb_prop_connected: int = 0
+var prop_drop_distance: float = 40
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -152,7 +154,9 @@ func drop_current_prop(take_mutex: bool) -> void:
 		curr_prop.process_mode = Node.PROCESS_MODE_INHERIT
 		curr_prop.get_parent().remove_child(curr_prop)
 		call_deferred("add_child_custom", curr_prop)
-		curr_prop.set_global_position(self.global_position)
+		curr_prop.linear_velocity = velocity
+		curr_prop.set_global_position(global_position + Vector2(0, 20) + Vector2.from_angle(curr_look) * prop_drop_distance)
+		curr_prop.apply_central_impulse(Vector2.from_angle(curr_look) * launch_force)
 	
 	if take_mutex: 
 		prop_mutex.unlock()
@@ -166,3 +170,9 @@ func add_prop_to_hand(prop: PortableProps) -> void:
 	
 func add_child_custom(prop: PortableProps):
 	get_parent().get_parent().add_child(prop)
+
+func _on_player_drop(drop_array : Array[bool]) -> void:
+	if drop_array[playerIndex]:
+		prop_mutex.lock()
+		drop_current_prop(false)
+		prop_mutex.unlock()

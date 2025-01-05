@@ -12,7 +12,7 @@ radius = 38.2099
 [node name="Bomb" type="RigidBody2D"]
 collision_layer = 64
 collision_mask = 67
-mass = 4.555
+mass = 3.5
 gravity_scale = 0.0
 contact_monitor = true
 max_contacts_reported = 1

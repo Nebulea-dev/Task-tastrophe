@@ -4,6 +4,7 @@ signal move_update(move_x : Array[float], move_y : Array[float])
 signal kick_update(players_concerned: Array[bool])
 signal ping_update(players_concerned: Array[bool])
 signal activated_update(players_concerned: Array[bool])
+signal drop_update(players_concerned: Array[bool])
 
 static var move_directions_x:Array[float] = [0,0,0]
 static var move_directions_y:Array[float] = [0,0,0]
@@ -20,6 +21,7 @@ func _process(_delta: float) -> void:
 	update_kick_input()
 	update_ping_input()
 	update_activation_input()
+	update_drop_input()
 	if Input.is_action_pressed("ui_cancel"):
 		var main_menu_scene = load("res://MainMenu/main_menu.tscn")
 		get_parent().get_parent().add_child(main_menu_scene.instantiate())
@@ -100,7 +102,7 @@ func update_ping_input() -> void:
 
 	ping_update.emit(player_ping)
 
-func update_activation_input()-> void:
+func update_activation_input() -> void:
 	var player_activation : Array[bool] = [false, false, false]
 	if Input.is_action_just_pressed("player1_activated"):
 		player_activation[0] = true
@@ -109,3 +111,13 @@ func update_activation_input()-> void:
 		player_activation[1] = true
 
 	activated_update.emit(player_activation)
+
+func update_drop_input() -> void:
+	var player_drop : Array[bool] = [false, false, false]
+	if Input.is_action_just_pressed("player1_drop"):
+		player_drop[0] = true
+
+	if Input.is_action_just_pressed("player2_drop"):
+		player_drop[1] = true
+
+	drop_update.emit(player_drop)
