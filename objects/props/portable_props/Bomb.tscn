@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b5t43aj6k824b"]
+[gd_scene load_steps=6 format=3 uid="uid://b5t43aj6k824b"]
 
 [ext_resource type="Script" path="res://objects/props/portable_props/bomb.gd" id="1_hd1rw"]
 [ext_resource type="Texture2D" uid="uid://d352sqpji1a1k" path="res://Aseprite/Bomb.png" id="1_i6aa3"]
+[ext_resource type="AudioStream" uid="uid://d31bxptiwp5uk" path="res://assets/MMO_Game_Magic_Source_Fire_13_Blow_Torch_Shot.wav" id="3_fymyf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_puf0i"]
 radius = 20.025
@@ -14,6 +15,8 @@ collision_layer = 64
 collision_mask = 67
 mass = 4.555
 gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 10.0
 script = ExtResource("1_hd1rw")
 
@@ -31,3 +34,8 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_b25gs")
+
+[node name="BombDefuseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fymyf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

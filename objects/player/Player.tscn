@@ -106,6 +106,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 67
 script = ExtResource("1_6fskp")

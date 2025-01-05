@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dqexjmovpgeq8"]
 
 [ext_resource type="Script" path="res://objects/props/portable_props/defuser.gd" id="1_bu64u"]
-[ext_resource type="Texture2D" uid="uid://dgr831nn4vkj6" path="res://Aseprite/Defuser.png" id="1_ok3s6"]
+[ext_resource type="Texture2D" uid="uid://th34com13cp3" path="res://Aseprite/Defuser.png" id="1_ok3s6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ephim"]
 radius = 13.0
