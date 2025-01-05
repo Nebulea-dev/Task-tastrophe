@@ -10,4 +10,3 @@ func _ready() -> void:
 	ListMission = [mission1, mission2]
 	ListPropsOther  =[]
 	readyHook()
-	pass # Replace with function body.

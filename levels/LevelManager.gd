@@ -33,25 +33,25 @@ func createPropsForMission () -> void :
 			TypeMission.ZONE:
 				createPropsForZone(mission)
 				
-func createPropsForTarget (mission: Mission) ->  void :
+func createPropsForTarget(mission: Mission) ->  void :
 	for child:Node in get_children() :
 		if child is TargetManager:
 			var target :TargetManager = child
-			target.finishMission.connect(mission.testIfMissionFinshed)
+			target.tryFinishMission.connect(mission.testIfMissionFinshed)
 
 
 func createPropsForShrine ()->  void:
 	pass
 
-func createPropsForZone (mission: Mission)->  void:
+func createPropsForZone (mission: Mission) ->  void:
 	for child:Node in get_children() :
-		if child is GrassDetector:
-			var grass :GrassDetector = child
-			grass.finishMission.connect(mission.testIfMissionFinshed)
+		if child is ZoneDetector:
+			var grass: ZoneDetector = child
+			grass.tryFinishMission.connect(mission.testIfMissionFinshed)
 
 
-func updateMission(missionid:int):
-	print("Mission ",missionid, " finished")
+func updateMission(type: int, mission_id: int):
+	print("Mission ", type , " : ",mission_id, " finished")
 	updateMissionUI()
 	
 func initializeTimer(initialTime: float):

@@ -13,8 +13,8 @@ extends MarginContainer
 
 @onready var selectors = [selector_1,selector_2,selector_3,selector_4,selector_5,selector_6,selector_7,selector_8,selector_9,selector_10]
 
-const level_1_scene = preload("res://Level1.tscn")
-const level_2_scene = preload("res://Level2.tscn")
+const level_1_scene = preload("res://levels/Level1.tscn")
+const level_2_scene = preload("res://levels/Level2.tscn")
 
 var current_selection = 0
 var previous_selection = 0
