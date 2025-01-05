@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=4 uid="uid://b1jvfe61fso5q"]
+[gd_scene load_steps=16 format=4 uid="uid://b1jvfe61fso5q"]
 
 [ext_resource type="Script" path="res://levels/level_5.gd" id="1_n7tv4"]
 [ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="2_imf8h"]
 [ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="3_0yu7a"]
+[ext_resource type="PackedScene" uid="uid://cvb0bl2briw0p" path="res://objects/managers/DeferredSoundManager.tscn" id="4_emg83"]
 [ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="4_pqly7"]
 [ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="5_dc275"]
 [ext_resource type="PackedScene" uid="uid://rpenf4lsnyii" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="6_xwt4v"]
@@ -105,6 +106,8 @@ tile_set = SubResource("TileSet_wgige")
 [node name="PlayersManager" parent="." node_paths=PackedStringArray("inputManagerNode") instance=ExtResource("3_0yu7a")]
 position = Vector2(1679, 263)
 inputManagerNode = NodePath("../InputManager")
+
+[node name="DeferredSoundManager" parent="." instance=ExtResource("4_emg83")]
 
 [node name="InputManager" parent="." instance=ExtResource("4_pqly7")]
 
