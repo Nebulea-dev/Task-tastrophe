@@ -38,7 +38,6 @@ func _ready() -> void:
 	$KeyAnimationPlayer.play("default")
 	Signals.set_timer_value.emit(120)
 	Signals.start_timer.emit()
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

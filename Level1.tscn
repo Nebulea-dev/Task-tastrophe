@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://d4mn600oe432k"]
+[gd_scene load_steps=14 format=4 uid="uid://d4mn600oe432k"]
 
 [ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="1_2wjc7"]
 [ext_resource type="Script" path="res://level_1.gd" id="1_w68es"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="2_4bkhm"]
 [ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_h6k3s"]
 [ext_resource type="Script" path="res://props_manager.gd" id="4_3e5oy"]
+[ext_resource type="PackedScene" uid="uid://cvb0bl2briw0p" path="res://objects/managers/DeferredSoundManager.tscn" id="6_0qxrx"]
 [ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="7_2lkxp"]
 [ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="7_3km8w"]
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="9_ycc60"]
@@ -71,6 +72,8 @@ inputManagerNode = NodePath("../InputManager")
 
 [node name="Props Manager" type="Node" parent="."]
 script = ExtResource("4_3e5oy")
+
+[node name="DeferredSoundManager" parent="." instance=ExtResource("6_0qxrx")]
 
 [node name="InputManager" parent="." instance=ExtResource("2_4bkhm")]
 
