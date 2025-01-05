@@ -1,6 +1,8 @@
 extends StaticBody2D
 
-signal shrineChance_finished
+class_name ShrineChance
+
+signal shrineChance_finished( playerid :int)
 
 @onready var moveDoorAnimation = $AnimationPlayer
 
@@ -55,3 +57,4 @@ func _on_action_pressed(playerIndex: int,player: Player ) -> void:
 					p.press_action.disconnect(_on_action_pressed)
 					ListplayerEntered [p.playerIndex] = false
 			isDone=true
+			shrineChance_finished.emit(playerIndex)

@@ -20,7 +20,7 @@ var current_selection = 0
 var previous_selection = 0
 const NUM_OF_LEVELS = 10
 
-var max_unlocked_level = 7
+var max_unlocked_level = 1
 
 func _ready() -> void:
 	hide_unlocked_levels(max_unlocked_level)
@@ -92,8 +92,14 @@ func handle_selection(level: int) -> void:
 	if level == 1:
 		get_parent().add_child(level_2_scene.instantiate())
 		queue_free()
+
 func hide_unlocked_levels(max_level: int) -> void:
-	for i in range(max_level, NUM_OF_LEVELS):
+	for i in range(0, NUM_OF_LEVELS):
 		var selector = selectors[i]
-		selector.get_node("Locked").visible = true
-		selector.get_node("Option").text = ""
+		if ( i >= max_level ): 
+			
+			selector.get_node("Locked").visible = true
+			selector.get_node("Option").text = ""
+		else :
+			
+			selector.get_node("Locked").visible = false

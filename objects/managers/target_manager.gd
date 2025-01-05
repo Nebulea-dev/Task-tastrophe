@@ -7,7 +7,7 @@ var activatedTargetList : Array[MoveTarget]
 var isChallengeStarted : bool = false
 var nbInChallenge : int = 3
 var currInChallenge : int = -1
-var associatedMission : Array =[] 
+ 
 var authorizePlayerID : Array
 
 signal tryFinishMission(playerId :int)
@@ -63,9 +63,7 @@ func _on_action_pressed(playerIndex: int, _player: Player) -> void:
 		
 		$AnimationPlayer.play("ReallyOpen")	
 		
-func connectMission(idMission : int )->void :
-	associatedMission.append(idMission)
-	pass
+
 	
 func SetAuthorizePlayer(authorizePlayer: Array)-> void :
 	authorizePlayerID=authorizePlayer

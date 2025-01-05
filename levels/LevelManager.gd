@@ -2,12 +2,12 @@ extends Node2D
 
 class_name LevelManager
 
-var idLevel: int = 0 ;
+var idLevel: int = 2 ;
 var isDone: bool = false
-var allowedTime = 120.0
+var allowedTime = 10#120.0
 var ListMission: Array[Mission] = []
 var ListPropsOther = []
-
+var nbMission= 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
  # Replace with function body.
@@ -17,7 +17,8 @@ func readyHook() -> void:
 	createPropsForMission()
 	initializeTimer(allowedTime)
 	updateMissionUI()
-
+	Signals.timer_ended.connect(Missionfail)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -63,7 +64,53 @@ func createPropsForWaitForPress (mission: Mission) ->  void:
 func updateMission(type: int, mission_id: int):
 	print("Mission ", type , " : ",mission_id, " finished")
 	updateMissionUI()
+	nbMission -=1 
+	if(nbMission<=0):
+		MissionPass()
 	
+func createPropsforShrine ():
+	pass	
+
+func Missionfail ():
+	# Ecran de echec 
+	var timer :Timer = Timer.new()
+	timer.one_shot = true
+	add_child(timer)
+	timer.timeout.connect(changeLevelFail)
+	timer.start(5.0)
+	pass
+	
+func changeLevelFail()	:
+	var levelSelector_scene = load("res://MainMenu/LevelSelector.tscn")
+	var levelSelector= levelSelector_scene.instantiate()
+	get_parent().add_child(levelSelector)
+	levelSelector.set_selected_level(levelSelector.current_selection , idLevel)
+	levelSelector.current_selection= idLevel
+	queue_free()
+	pass
+func MissionPass ():
+	Signals.stop_timer.emit()
+	# Ecran de victoire 
+	var timer :Timer = Timer.new()
+	
+	timer.one_shot = true
+	
+	add_child(timer)
+	timer.timeout.connect(changeLevelSucceed)
+	timer.start(3.0)
+
+func changeLevelSucceed()	:
+	var levelSelector_scene = load("res://MainMenu/LevelSelector.tscn")
+	var levelSelector= levelSelector_scene.instantiate()
+	get_parent().add_child(levelSelector)
+	levelSelector.max_unlocked_level= max (idLevel+1 , levelSelector.max_unlocked_level)
+	levelSelector.hide_unlocked_levels(levelSelector.max_unlocked_level)
+	
+	levelSelector.set_selected_level(levelSelector.current_selection , idLevel)
+	levelSelector.current_selection= idLevel
+	queue_free()
+	pass
+
 func initializeTimer(initialTime: float):
 	Signals.set_timer_value.emit(initialTime)
 	Signals.start_timer.emit()
