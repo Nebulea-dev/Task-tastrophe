@@ -2,14 +2,12 @@ extends PortableProps
 
 class_name Bomb
 
-signal bomb_defused
-
 func _ready() -> void:
 	readyHook()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 

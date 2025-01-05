@@ -31,7 +31,7 @@ func _ready() -> void:
 	close_player_mission_tab(2)
 	close_player_mission_tab(3)
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var remaining_time: float = GameTimer.time_left
 	var min: int = int(remaining_time / 60)
 	var sec: int = int(remaining_time) % 60
