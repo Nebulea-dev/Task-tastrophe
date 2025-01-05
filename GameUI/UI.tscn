@@ -238,6 +238,7 @@ text = "• Move to the next box
 scroll_active = false
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer/HBoxContainer2"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
