@@ -4,7 +4,7 @@ extends LevelManager
 
 func init(_nb_players: int) -> void:
 	nb_players = _nb_players
-	idLevel = 2
+	idLevel = 3
 	isDone = false
 	var mission1: Mission = Mission.new(TypeMission.TARGET, 0, 0, false, "Move to the targets")
 	var mission2: Mission = Mission.new(TypeMission.ZONE, 0, 1, false, "Touch Grass")
