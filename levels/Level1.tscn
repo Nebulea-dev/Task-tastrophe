@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d4mn600oe432k"]
+[gd_scene load_steps=16 format=4 uid="uid://d4mn600oe432k"]
 
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_kpfjx"]
 [ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_5pw52"]
@@ -9,11 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://c5jgntdpyqlxn" path="res://objects/InputManager.tscn" id="7_wrjay"]
 [ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="8_amux2"]
 [ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="9_vufpq"]
-[ext_resource type="PackedScene" uid="uid://rpenf4lsnyii" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="10_pavc7"]
+[ext_resource type="PackedScene" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="10_pavc7"]
 [ext_resource type="PackedScene" uid="uid://b5t43aj6k824b" path="res://objects/props/portable_props/Bomb.tscn" id="11_88ysa"]
 [ext_resource type="PackedScene" uid="uid://dqexjmovpgeq8" path="res://objects/props/portable_props/Defuser.tscn" id="12_2mkk1"]
 [ext_resource type="PackedScene" uid="uid://c258ha18bi4yb" path="res://objects/props/buzzer/Buzzer.tscn" id="12_170g2"]
-[ext_resource type="PackedScene" uid="uid://dqx6clluw1iha" path="res://GameUI/WinLoseManager.tscn" id="13_1xjup"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38thi"]
 texture = ExtResource("3_e5tco")
@@ -99,9 +98,9 @@ sources/0 = SubResource("TileSetAtlasSource_38thi")
 script = ExtResource("1_kpfjx")
 
 [node name="UI" parent="." instance=ExtResource("2_5pw52")]
-offset_left = 34.0
+offset_left = 33.0
 offset_top = 10.0
-offset_right = 34.0
+offset_right = 33.0
 offset_bottom = 10.0
 
 [node name="Layer0" type="TileMapLayer" parent="."]
@@ -113,7 +112,7 @@ tile_map_data = PackedByteArray("AAADAAEAAAAEAAAAAAAEAAEAAAAFAAAAAAAFAAEAAAAFAAA
 tile_set = SubResource("TileSet_pfkd4")
 
 [node name="PlayersManager" parent="." node_paths=PackedStringArray("inputManagerNode") instance=ExtResource("4_w4pme")]
-position = Vector2(522, 309)
+position = Vector2(538, 282)
 inputManagerNode = NodePath("../InputManager")
 
 [node name="DeferredSoundManager" parent="." instance=ExtResource("6_2p1os")]
@@ -125,8 +124,6 @@ position = Vector2(1346, 311)
 
 [node name="TargetManager" parent="." instance=ExtResource("8_amux2")]
 position = Vector2(685, 194)
-
-[node name="WinLoseManager" parent="." instance=ExtResource("13_1xjup")]
 
 [node name="MoveTargetList" type="Node2D" parent="."]
 
@@ -146,7 +143,7 @@ position = Vector2(1239, 442)
 position = Vector2(971, 761)
 
 [node name="MoveTarget6" parent="MoveTargetList" instance=ExtResource("9_vufpq")]
-position = Vector2(360, 321)
+position = Vector2(1942, 1522)
 
 [node name="GrassDetector" parent="." instance=ExtResource("10_pavc7")]
 position = Vector2(1442, 321)
@@ -156,15 +153,11 @@ scale = Vector2(24, 16)
 position = Vector2(1587, 335)
 
 [node name="Defuser" parent="." instance=ExtResource("12_2mkk1")]
-position = Vector2(578, 253)
-
-[node name="Buzzer" parent="." instance=ExtResource("12_170g2")]
-position = Vector2(361, 417)
-
-[node name="Bomb2" parent="." instance=ExtResource("11_88ysa")]
-position = Vector2(660, 287)
-bomb_id = 1
+position = Vector2(373, 312)
 
 [node name="Defuser2" parent="." instance=ExtResource("12_2mkk1")]
-position = Vector2(1348, 200)
-bomb_id = 1
+position = Vector2(674, 340)
+bomb_id = 2
+
+[node name="Buzzer" parent="." instance=ExtResource("12_170g2")]
+position = Vector2(386, 430)

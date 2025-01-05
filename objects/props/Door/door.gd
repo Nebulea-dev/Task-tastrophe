@@ -22,8 +22,9 @@ func _process(delta: float) -> void:
 	
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player:
-		body.press_action.connect(_on_action_pressed)
+	pass
+	#if body is Player:
+		#body.press_action.connect(_on_action_pressed)
 
 
 
@@ -33,7 +34,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 
-func _on_action_pressed(playerIndex: int) -> void:
+func _on_action_pressed(playerIndex: int, player: Player)-> void:
 	var collisionShape :CollisionShape2D = get_node("./StaticBody2D/Collision")
 		
 	if( isOpen):
