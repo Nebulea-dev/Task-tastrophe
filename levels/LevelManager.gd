@@ -4,7 +4,7 @@ class_name LevelManager
 
 var idLevel: int = 2 ;
 var isDone: bool = false
-var allowedTime = 10#120.0
+var allowedTime = 120.0
 var ListMission: Array[Mission] = []
 var ListPropsOther = []
 var nbMission= 1
