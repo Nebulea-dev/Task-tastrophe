@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bix4r41l141a0"
+path="res://.godot/imported/Mario Kart Wii Music - Finish Out & Losing Results (Race)-[AudioTrimmer.com].mp3-8e45d5c09fa8d1e91b2191cc5adfadbb.mp3str"
+
+[deps]
+
+source_file="res://assets/Mario Kart Wii Music - Finish Out & Losing Results (Race)-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Mario Kart Wii Music - Finish Out & Losing Results (Race)-[AudioTrimmer.com].mp3-8e45d5c09fa8d1e91b2191cc5adfadbb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
