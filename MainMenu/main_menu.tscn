@@ -53,15 +53,13 @@ theme_override_font_sizes/font_size = 100
 text = "> "
 
 [node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer"]
-custom_minimum_size = Vector2(694, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 30
 theme_override_fonts/font = ExtResource("2_hx24q")
 theme_override_font_sizes/font_size = 100
-text = "Start"
+text = "Level selection"
 
 [node name="CenterContainer2" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2"]
@@ -76,49 +74,6 @@ theme_override_font_sizes/font_size = 100
 text = "> "
 
 [node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(694, 0)
-layout_mode = 2
-theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_hx24q")
-theme_override_font_sizes/font_size = 100
-text = "tutorial"
-
-[node name="CenterContainer4" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4"]
-layout_mode = 2
-
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
-custom_minimum_size = Vector2(56, 0)
-layout_mode = 2
-theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_hx24q")
-theme_override_font_sizes/font_size = 100
-text = "> "
-
-[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer4/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_hx24q")
-theme_override_font_sizes/font_size = 100
-text = "Level selection"
-
-[node name="CenterContainer3" type="CenterContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer"]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3"]
-layout_mode = 2
-
-[node name="Selector" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
-custom_minimum_size = Vector2(56, 0)
-layout_mode = 2
-theme_override_constants/outline_size = 30
-theme_override_fonts/font = ExtResource("2_hx24q")
-theme_override_font_sizes/font_size = 100
-text = "> "
-
-[node name="Option" type="Label" parent="CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer3/HBoxContainer"]
 custom_minimum_size = Vector2(694, 0)
 layout_mode = 2
 theme_override_constants/outline_size = 30
