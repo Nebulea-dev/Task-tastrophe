@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dt3e7jl5e8whg"]
+[gd_scene load_steps=17 format=4 uid="uid://dt3e7jl5e8whg"]
 
 [ext_resource type="Script" path="res://levels/level_2.gd" id="1_mrr4w"]
 [ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="2_ujh3s"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://0mw6m5dok2hq" path="res://objects/managers/TargetManager.tscn" id="6_hbno2"]
 [ext_resource type="PackedScene" uid="uid://cvb0bl2briw0p" path="res://objects/managers/DeferredSoundManager.tscn" id="6_javgy"]
 [ext_resource type="PackedScene" uid="uid://csavgu3ih1dsf" path="res://objects/props/Door/Door_front.tscn" id="7_jinqq"]
+[ext_resource type="PackedScene" uid="uid://dqx6clluw1iha" path="res://GameUI/WinLoseManager.tscn" id="7_mbllo"]
 [ext_resource type="PackedScene" uid="uid://beh4nrm2234e4" path="res://objects/props/walkable_tiles/MoveTarget.tscn" id="7_yujam"]
 [ext_resource type="PackedScene" uid="uid://rpenf4lsnyii" path="res://objects/props/walkable_tiles/ZoneDetector.tscn" id="8_acujg"]
 [ext_resource type="PackedScene" uid="uid://ck07h3y8evh3o" path="res://objects/props/ShrineChance/ShrineChance.tscn" id="10_srav0"]
@@ -112,6 +113,8 @@ inputManagerNode = NodePath("../InputManager")
 [node name="InputManager" parent="." instance=ExtResource("5_mn420")]
 
 [node name="DeferredSoundManager" parent="." instance=ExtResource("6_javgy")]
+
+[node name="WinLoseManager" parent="." instance=ExtResource("7_mbllo")]
 
 [node name="TargetManager" parent="." instance=ExtResource("6_hbno2")]
 position = Vector2(849, 928)
