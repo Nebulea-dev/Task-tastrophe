@@ -1,11 +1,13 @@
 extends Node2D
 
 
-signal target_finished
+
 
 @onready var moveDoorAnimation = $AnimationPlayer
 
 var isOpen : bool = false
+
+#Todo power not all player can open door 
 var playerActiveId: int = -1
 
 

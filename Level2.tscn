@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://dfw8smd2igurd"]
 
-[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://UI.tscn" id="1_3htxk"]
+[ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="1_vocmi"]
 [ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="1_x51sn"]
 [ext_resource type="PackedScene" uid="uid://cltd17pa5qo4o" path="res://objects/managers/PlayersManager.tscn" id="2_5vc0i"]
 [ext_resource type="Script" path="res://props_manager.gd" id="3_yfsxl"]
@@ -52,7 +52,7 @@ sources/0 = SubResource("TileSetAtlasSource_css3y")
 
 [node name="Level2" type="Node2D"]
 
-[node name="UI" parent="." instance=ExtResource("1_3htxk")]
+[node name="UI" parent="." instance=ExtResource("1_vocmi")]
 
 [node name="Layer0" type="TileMapLayer" parent="."]
 z_index = -1

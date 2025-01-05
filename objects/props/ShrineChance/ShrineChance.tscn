@@ -1,13 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dio0sk0e83p3n"]
+[gd_scene load_steps=9 format=3 uid="uid://ck07h3y8evh3o"]
 
-[ext_resource type="Script" path="res://objects/props/Door/door.gd" id="1_cd0yf"]
-[ext_resource type="Texture2D" uid="uid://b4b2wbh4mqdst" path="res://objects/props/walkable_tiles/Targets.png" id="1_ytvl0"]
+[ext_resource type="Script" path="res://objects/props/ShrineChance/shrine_of_chance.gd" id="1_nycne"]
+[ext_resource type="Texture2D" uid="uid://b4b2wbh4mqdst" path="res://objects/props/walkable_tiles/Targets.png" id="1_vc7yh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ua0dj"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylat8"]
 size = Vector2(65, 65)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yqxsq"]
-radius = 52.5595
+[sub_resource type="CircleShape2D" id="CircleShape2D_e512b"]
+radius = 60.5516
 
 [sub_resource type="Animation" id="Animation_q706b"]
 length = 0.001
@@ -62,15 +62,11 @@ _data = {
 "TrySucceed": SubResource("Animation_cbhgw")
 }
 
-[node name="Door" type="Node2D"]
-script = ExtResource("1_cd0yf")
+[node name="ShrineOfChance" type="StaticBody2D"]
+script = ExtResource("1_nycne")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 64
-collision_mask = 64
-
-[node name="Collision" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_ua0dj")
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ylat8")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
@@ -78,13 +74,13 @@ collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, 0.5)
-shape = SubResource("CircleShape2D_yqxsq")
+shape = SubResource("CircleShape2D_e512b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 texture_filter = 1
 scale = Vector2(4, 4)
-texture = ExtResource("1_ytvl0")
+texture = ExtResource("1_vc7yh")
 hframes = 2
 vframes = 2
 metadata/_aseprite_wizard_interface_config_ = {
