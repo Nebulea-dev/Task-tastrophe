@@ -18,6 +18,7 @@ extends MarginContainer
 
 const level_1_scene = preload("res://levels/Level1.tscn")
 const level_2_scene = preload("res://levels/Level2.tscn")
+const level_3_scene = preload("res://levels/Level3.tscn")
 
 var selected_level = -1
 var current_selection = 0
@@ -139,6 +140,8 @@ func handle_player_selection(player_amount: int) -> void:
 		level_node = level_1_scene.instantiate()
 	if selected_level == 1:
 		level_node = level_2_scene.instantiate()
+	if level == 2:
+		level_node = level_3_scene.instantiate()
 		
 	get_parent().add_child(level_node)
 	print("num of player : ", player_amount + 2)
