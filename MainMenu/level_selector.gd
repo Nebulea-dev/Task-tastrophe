@@ -14,6 +14,7 @@ extends MarginContainer
 @onready var selectors = [selector_1,selector_2,selector_3,selector_4,selector_5,selector_6,selector_7,selector_8,selector_9,selector_10]
 
 const level_1_scene = preload("res://Level1.tscn")
+const level_2_scene = preload("res://Level2.tscn")
 
 var current_selection = 0
 var previous_selection = 0
@@ -88,7 +89,9 @@ func handle_selection(level: int) -> void:
 	if level == 0:
 		get_parent().add_child(level_1_scene.instantiate())
 		queue_free()
-	
+	if level == 1:
+		get_parent().add_child(level_2_scene.instantiate())
+		queue_free()
 func hide_unlocked_levels(max_level: int) -> void:
 	for i in range(max_level, NUM_OF_LEVELS):
 		var selector = selectors[i]

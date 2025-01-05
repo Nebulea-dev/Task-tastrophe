@@ -1,12 +1,16 @@
 extends Node2D
 
+class_name TargetManager 
 var currTargetList : Array[MoveTarget]
 var activatedTargetList : Array[MoveTarget]
 
 var isChallengeStarted : bool = false
 var nbInChallenge : int = 3
 var currInChallenge : int = -1
+var associatedMission : Array =[] 
+var authorizePlayerID : Array
 
+signal finishMission(playerId :int) 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.play("Closed")
@@ -26,6 +30,7 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
+		#if authorize 
 		body.press_action.connect(_on_action_pressed)
 
 
@@ -35,7 +40,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		body.press_action.disconnect(_on_action_pressed)
 
 
-func _on_target_finished() -> void:
+func _on_target_finished(player:Player) -> void:
 	currInChallenge -= 1
 	if(currInChallenge > 0):
 		$TargetCloseSound.play()
@@ -43,6 +48,7 @@ func _on_target_finished() -> void:
 		$FinishTargetsSound.play()
 		$AnimationPlayer.play("Closed")
 		isChallengeStarted = false
+		finishMission.emit(player.playerIndex) 
 
 func _on_action_pressed(playerIndex: int, _player: Player) -> void:
 	if not isChallengeStarted:
@@ -57,3 +63,9 @@ func _on_action_pressed(playerIndex: int, _player: Player) -> void:
 		
 		$AnimationPlayer.play("ReallyOpen")	
 		
+func connectMission(idMission : int )->void :
+	associatedMission.append(idMission)
+	pass
+	
+func SetAuthorizePlayer(authorizePlayer: Array)-> void :
+	authorizePlayerID=authorizePlayer
