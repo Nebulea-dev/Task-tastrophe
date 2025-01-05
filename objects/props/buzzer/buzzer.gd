@@ -12,6 +12,7 @@ signal tryFinishMission(playerId :int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$NumberLabel.text = "%d" % buzzer_id
 	$AnimationPlayer.play("Idle")
 
 
