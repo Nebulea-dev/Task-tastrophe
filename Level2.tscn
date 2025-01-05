@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dfw8smd2igurd"]
+[gd_scene load_steps=10 format=4 uid="uid://dt3e7jl5e8whg"]
 
 [ext_resource type="PackedScene" uid="uid://eibebwdc0s5c" path="res://GameUI/UI.tscn" id="1_vocmi"]
 [ext_resource type="Texture2D" uid="uid://ccw00tjti3wvu" path="res://Aseprite/Tilemap.png" id="1_x51sn"]
