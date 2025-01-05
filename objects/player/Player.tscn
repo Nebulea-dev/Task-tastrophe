@@ -9,8 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://d0m8yxup56trp" path="res://assets/Click (12).wav" id="7_0hj6r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qikmd"]
-radius = 24.0
-height = 48.0
+radius = 31.0
+height = 62.0
 
 [sub_resource type="Animation" id="Animation_nduu3"]
 length = 0.4
@@ -113,8 +113,8 @@ script = ExtResource("1_6fskp")
 
 [node name="PrincipalSprite" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(3, 1)
-scale = Vector2(5, 5)
+position = Vector2(4, 0)
+scale = Vector2(7, 7)
 texture = ExtResource("2_fct0r")
 hframes = 4
 vframes = 3
@@ -138,7 +138,7 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "83a8ecc56eaf43f77e2051fb40565df4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 19)
+position = Vector2(0, 28)
 shape = SubResource("CapsuleShape2D_qikmd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

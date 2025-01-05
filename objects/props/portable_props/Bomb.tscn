@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://d352sqpji1a1k" path="res://Aseprite/Bomb.png" id="1_i6aa3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_puf0i"]
-radius = 20.025
+radius = 22.0227
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b25gs"]
-radius = 38.2099
+radius = 49.0102
 
 [node name="Bomb" type="RigidBody2D"]
 collision_layer = 64
@@ -23,8 +23,8 @@ script = ExtResource("1_hd1rw")
 shape = SubResource("CircleShape2D_puf0i")
 
 [node name="Bomb" type="Sprite2D" parent="."]
-position = Vector2(3, -9)
-scale = Vector2(3, 3)
+position = Vector2(4, -12)
+scale = Vector2(4, 4)
 texture = ExtResource("1_i6aa3")
 
 [node name="Area2D" type="Area2D" parent="."]

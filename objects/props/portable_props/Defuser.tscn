@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://th34com13cp3" path="res://Aseprite/Defuser.png" id="1_ok3s6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ephim"]
-radius = 13.0
-height = 50.0
+radius = 15.0
+height = 66.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j53uh"]
-radius = 41.0
+radius = 50.01
 
 [node name="Defuser" type="RigidBody2D"]
 collision_layer = 64
@@ -19,11 +19,12 @@ linear_damp = 5.0
 script = ExtResource("1_bu64u")
 
 [node name="Defuser" type="Sprite2D" parent="."]
-scale = Vector2(3, 3)
+position = Vector2(6, 0)
+scale = Vector2(4, 4)
 texture = ExtResource("1_ok3s6")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 0)
+position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_ephim")
 
 [node name="Area2D" type="Area2D" parent="."]
