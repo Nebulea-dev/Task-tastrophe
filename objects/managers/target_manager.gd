@@ -10,7 +10,7 @@ var currInChallenge : int = -1
 var associatedMission : Array =[] 
 var authorizePlayerID : Array
 
-signal finishMission(playerId :int) 
+signal finishMission(playerId :int)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.play("Closed")

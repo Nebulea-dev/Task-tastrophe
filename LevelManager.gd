@@ -27,20 +27,29 @@ func createPropsForMission () -> void :
 		mission.finshMission.connect(updateMission)
 		match mission.type : 
 			TypeMission.TARGET:
-				createPropsforTarget(mission)
+				createPropsForTarget(mission)
 			TypeMission.SHRINECHANCE:
-				createPropsforShrine()
+				createPropsForShrine()
+			TypeMission.ZONE:
+				createPropsForZone(mission)
 				
-func createPropsforTarget (mission: Mission) ->  void :
+func createPropsForTarget (mission: Mission) ->  void :
 	for child:Node in get_children() :
 		if child is TargetManager:
 			var target :TargetManager = child
 			target.finishMission.connect(mission.testIfMissionFinshed)
+
+
+func createPropsForShrine ()->  void:
 	pass
 
-func createPropsforShrine ()->  void:
-	
-	pass
+func createPropsForZone (mission: Mission)->  void:
+	for child:Node in get_children() :
+		if child is GrassDetector:
+			var grass :GrassDetector = child
+			grass.finishMission.connect(mission.testIfMissionFinshed)
+
+
 func updateMission(missionid:int):
 	print("Mission ",missionid, " finished")
 	updateMissionUI()
